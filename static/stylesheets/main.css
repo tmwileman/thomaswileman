@@ -242,12 +242,9 @@ width: 20%;
     width: 45%;
     float: center;
   }
-  a.button1{
-    display:block;
-    margin:0.4em auto;
-  }
+  
   .header-right {
-    width: 50%;
+    width: 55%;
     float: right;
     text-align: right;
   }
