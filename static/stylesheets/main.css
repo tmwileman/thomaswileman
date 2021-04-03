@@ -146,12 +146,6 @@ font-weight: 500;
 line-height: 10%;
 }
 
-/* Style the logo link 
-.header a.logo {
-width: 25%;
-float: center;
-}
-
 /* Change the background color on mouse-over */
 .header a:hover {
 color: #FFFFFF;
@@ -239,9 +233,11 @@ width: 20%;
 @media screen and (max-width: 600px) {
   .header a {
     float: none;
+    padding: 2px;
     display: inline-flex;
     text-align: center;
   }
+
   .header a.logo {
     width: 45%;
     float: center;
@@ -251,9 +247,11 @@ width: 20%;
     margin:0.4em auto;
   }
   .header-right {
-    width: 44%;
+    width: 50%;
     float: right;
+    text-align: right;
   }
+
   .float-container {
     padding: 10px;
     width: 98%;
