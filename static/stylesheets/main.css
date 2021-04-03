@@ -125,7 +125,7 @@ margin-top: 10px;
 }  
 
 /* Style the header with a green background and some padding */
-.header {
+div.header {
 display: inline-block;
 overflow: hidden;
 background-color: #1ADB7E;
@@ -134,12 +134,10 @@ width: 100%;
 }
 
 /* Style the header links */
-.header a {
+div.header a {
 display: inline-flex;
 padding: 5px;
-float: left;
 color: black;
-text-align: center;
 font-family: 'Red Hat Text', sans-serif;
 font-size: 100%;
 font-weight: 500;
@@ -147,13 +145,12 @@ line-height: 10%;
 }
 
 /* Change the background color on mouse-over */
-.header a:hover {
+div.header a:hover {
 color: #FFFFFF;
 }
 
 /* Float the link section to the right */
-.header-right {
-width: 14%;
+div.header-right {
 float: right;
 }
 
@@ -233,16 +230,11 @@ width: 20%;
 @media screen and (max-width: 600px) {
   .header a {
     float: none;
-    padding: 2px;
-    display: inline-flex;
+    padding: 1px;
+    display:inline;
     text-align: center;
   }
 
-  .header a.logo {
-    width: 45%;
-    float: center;
-  }
-  
   .header-right {
     width: 55%;
     float: right;
