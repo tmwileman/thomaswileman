@@ -96,48 +96,7 @@ li.header {
 hr {
   width: 90%;
 }
-
-
-a.button1 {
-  display:block;
-  padding:0.35em 1.2em;
-  border:0.1em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  background-color: #FFFFFF;
-  font-family:'Red Hat Text',sans-serif;
-  font-weight:300;
-  color:#000000;
-  text-align:center;
-  transition: all 0.2s;
-  }
-  @media all and (max-width:30em){
-   a.button1{
-  display:block;
-  margin:0.4em auto;
-  }
-}
-
-a:link {
-color: #BE0000;
-background-color: transparent;
-text-decoration: none;
-}
-
-a:visited {
-color: #5F0000;
-background-color: transparent;
-text-decoration: none;
-}
-
-a:active {
-color: yellow;
-background-color: transparent;
-text-decoration: underline;
-}
-
+  
 .container {
   display: flex;
   justify-content: center;
@@ -165,7 +124,7 @@ float: left;
 margin-top: 10px;
 }  
 
-/* Style the header with a grey background and some padding */
+/* Style the header with a green background and some padding */
 .header {
 display: inline-block;
 overflow: hidden;
@@ -184,10 +143,10 @@ text-align: center;
 font-family: 'Red Hat Text', sans-serif;
 font-size: 100%;
 font-weight: 500;
-line-height: 10px;
+line-height: 10%;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+/* Style the logo link 
 .header a.logo {
 width: 25%;
 float: center;
@@ -200,28 +159,8 @@ color: #FFFFFF;
 
 /* Float the link section to the right */
 .header-right {
+width: 14%;
 float: right;
-}
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-.header a {
-  float: none;
-  display: inline-flex;
-  text-align: center;
-}
-.header a.logo {
-  width: 45%;
-  float: center;
-}
-.header-right {
-  float: right;
-}
-.float-container {
-  padding: 10px;
-  width: 98%;
-  margin: auto;
-}
 }
 
 footer {
@@ -235,11 +174,7 @@ footer .copyright {
 width: 50%;
 float: left;
 }
-@media (max-width: 600px) {
-footer .copyright {
-  width: 100%;
-}
-}
+
 footer .copyright p {
 padding-left: 10%;
 background-color: #1ADB7E;
@@ -249,21 +184,12 @@ line-height: 70px;
 text-transform: capitalize;
 letter-spacing: 1px;
 }
-@media (max-width: 600px) {
-footer .copyright p {
-  text-align: center;
-  padding: 0;
-}
-}
+
 footer .social {
 width: 50%;
 float: right;
 }
-@media (max-width: 600px) {
-footer .social {
-  width: 100%;
-}
-}
+
 footer .social a {
 float: left;
 line-height: 70px;
@@ -276,6 +202,7 @@ font-weight: bold;
 -webkit-transition: all, 0.3s;
 transition: all, 0.3s;
 }
+
 footer .social a:hover {
 background-color:#999;
 -moz-transition: all, 0.3s;
@@ -307,3 +234,39 @@ background-color: #abafad;
 font-size: 0.8em;
 width: 20%;
 }
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 600px) {
+  .header a {
+    float: none;
+    display: inline-flex;
+    text-align: center;
+  }
+  .header a.logo {
+    width: 45%;
+    float: center;
+  }
+  a.button1{
+    display:block;
+    margin:0.4em auto;
+  }
+  .header-right {
+    width: 44%;
+    float: right;
+  }
+  .float-container {
+    padding: 10px;
+    width: 98%;
+    margin: auto;
+  }
+  footer .copyright {
+    width: 90%;
+  }
+  footer .copyright p {
+    text-align: center;
+    padding: 0;
+  }
+  footer .social {
+    width: 100%;
+  }
+  }
