@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Importing a CSV</h2>
+<p class="notes">Comma-separated value (CSV) files contain plain text elements separated by commas. The plain text elements are data records and the commas separate those records; providing structure for tabular data. Below is an example of data in a CSV file. Notice that each element in the file is separated by a comma (also referred to as a delimeter).</p>
+<code>"LatD", "LatM", "LatS", "NS", "LonD", "LonM", "LonS", "EW", "City", "State"
+    41,    5,   59, "N",     80,   39,    0, "W", "Youngstown", OH
+    42,   52,   48, "N",     97,   23,   23, "W", "Yankton", SD
+    46,   35,   59, "N",    120,   30,   36, "W", "Yakima", WA
+    42,   16,   12, "N",     71,   48,    0, "W", "Worcester", MA
+    43,   37,   48, "N",     89,   46,   11, "W", "Wisconsin Dells", WI
+    36,    5,   59, "N",     80,   15,    0, "W", "Winston-Salem", NC</code>
+<p class="notes">CSV files are a commonly used by data scientists and machine learning engineers to export and load data. For example, I commonly save the output of a SQL query to a csv so I can share data with colleagues, eliminate the need to run the SQL query again to obtain the same data, and help ensure reproducibility. There are several ways to import a CSV into your workspace. I'm going to cover the two methods I use most often.
+</p>
+<h3 class="notes">Python's Built-in CSV Library</h3>
+<p class="notes">The csv library makes reading and writing csv files fairly easy. First import the csv library. Next, use Python's open() function to generate a file object. Next, pass the file object to csv's reader function before finally putting the resulting data in a list.
+</p>
+<div>
+    <code>import csv<br><br>
+        with open('file_path', newline='') as file_object:<br>
+        csv_object = csv.reader(file_object)<br>
+        data = list(csv_object)<br>
+        print(data)</code>
+</div>
+<p class="notes">This yields the following output:
+</p>
+<code>[['LatD', ' "LatM"', ' "LatS"', ' "NS"', ' "LonD"', ' "LonM"', ' "LonS"', ' "EW"', ' "City"', ' "State"'], ['   41', '    5', '   59', ' "N"', '     80', '   39', '    0', ' "W"', ' "Youngstown"', ' OH'], ['   42', '   52', '   48', ' "N"', '     97', '   23', '   23', ' "W"', ' "Yankton"', ' SD'], ['   46', '   35', '   59', ' "N"', '    120', '   30', '   36', ' "W"', ' "Yakima"', ' WA'], ['   42', '   16', '   12', ' "N"', '     71', '   48', '    0', ' "W"', ' "Worcester"', ' MA'], ['   43', '   37', '   48', ' "N"', '     89', '   46', '   11', ' "W"', ' "Wisconsin Dells"', ' WI'], ['   36', '    5', '   59', ' "N"', '     80', '   15', '    0', ' "W"', ' "Winston-Salem"', ' NC']</code>
+
+<h3 class="notes">Python's Built-in CSV Library</h3>
+<p class="notes">The pandas library can be used to easily import a csv as a dataframe. First, import the pandas library. Next, use pandas' read_csv function to convert the csv to a dataframe.
+</p>
+<code>import pandas as pd<br>
+        df = pd.read_csv(r'file_path')
+</code>
+<p class="notes">This technique yields the following result:
+</p>
+<code> <table style="width:100%">
+    <tr>
+      <th>LatD</th>
+      <th>LatM</th>
+      <th>LatS</th>
+      <th>NS</th>
+      <th>LonD</th>
+      <th>LonM</th>
+      <th>LonS</th>
+      <th>EW</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>5</td>
+      <td>59</td>
+      <td>N</td>
+      <td>80</td>
+      <td>39</td>
+      <td>0</td>
+      <td>W</td>
+      <td>Youngstown</td>
+      <td>OH</td>
+    </tr>
+    <tr>
+        <td>42</td>
+        <td>42</td>
+        <td>48</td>
+        <td>N</td>
+        <td>97</td>
+        <td>23</td>
+        <td>23</td>
+        <td>W</td>
+        <td>Yankton</td>
+        <td>SD</td>
+    </tr>
+    <tr>
+        <td>46</td>
+        <td>35</td>
+        <td>59</td>
+        <td>N</td>
+        <td>120</td>
+        <td>30</td>
+        <td>36</td>
+        <td>W</td>
+        <td>Yakima</td>
+        <td>MA</td>
+    </tr>
+    <tr>
+        <td>46</td>
+        <td>35</td>
+        <td>59</td>
+        <td>N</td>
+        <td>120</td>
+        <td>30</td>
+        <td>36</td>
+        <td>W</td>
+        <td>Yakima</td>
+        <td>WA</td>
+    </tr>
+    <tr>
+        <td>42</td>
+        <td>16</td>
+        <td>12</td>
+        <td>N</td>
+        <td>71</td>
+        <td>48</td>
+        <td>0</td>
+        <td>W</td>
+        <td>Worchester</td>
+        <td>MA</td>
+    </tr>
+    <tr>
+        <td>43</td>
+        <td>37</td>
+        <td>48</td>
+        <td>N</td>
+        <td>89</td>
+        <td>46</td>
+        <td>11</td>
+        <td>W</td>
+        <td>Wisconsin Dells</td>
+        <td>WI</td>
+    </tr>
+    <tr>
+        <td>36</td>
+        <td>5</td>
+        <td>59</td>
+        <td>N</td>
+        <td>80</td>
+        <td>15</td>
+        <td>0</td>
+        <td>W</td>
+        <td>Winston-Salem</td>
+        <td>NC</td>
+    </tr>
+  </table> </code>
+
+{% endblock %}

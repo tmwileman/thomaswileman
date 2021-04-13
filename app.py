@@ -26,5 +26,10 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/import_csv", methods=["GET", "POST"])
+def csv_import():
+    return render_template("import_csv.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
