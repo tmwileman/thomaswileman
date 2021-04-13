@@ -24,6 +24,18 @@ h2 {
   padding-right: 15%;
 }
 
+h2.notes {
+  background-color: white;
+  color: #000000;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 200%;
+  font-weight: 300;
+  text-align: center;
+  padding-left: 5%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 h2.resume {
   background-color: white;
   color: #000000;
@@ -88,6 +100,12 @@ ul {
   padding-right: 5%;
 }
 
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
 li.header {
   padding-left: 5%;
   padding-right: 5%;
@@ -122,7 +140,13 @@ margin-top: 10px;
 width: 20%;
 float: left;
 margin-top: 10px;
-}  
+}
+
+.note-container {
+  padding: 10px;
+  width: 60%;
+  margin: auto;
+  }
 
 /* Style the header with a green background and some padding */
 div.header {
@@ -233,10 +257,10 @@ width: 20%;
     padding: 1px;
     display:inline;
     text-align: center;
+    background-color: #1ADB7E;
   }
 
   .header-right {
-    width: 55%;
     float: right;
     text-align: right;
   }
@@ -246,6 +270,25 @@ width: 20%;
     width: 98%;
     margin: auto;
   }
+
+  p.resume { 
+    background-color: white;
+    color: #000000;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 100%;
+    font-weight: 500;
+    text-align: left;
+    width: 80%;
+    padding-top: 2%;
+  }
+
+  .float-container {
+    padding: 10px;
+    width: 95%;
+    margin: auto;
+    font-size: 80%;
+    }
+
   footer .copyright {
     width: 90%;
   }
