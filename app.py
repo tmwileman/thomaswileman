@@ -31,5 +31,10 @@ def csv_import():
     return render_template("import_csv.html")
 
 
+@app.route("/ai_ml_dl", methods=["GET", "POST"])
+def ai_ml_dl():
+    return render_template("ai_ml_dl.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
