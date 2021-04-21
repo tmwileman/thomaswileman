@@ -36,5 +36,10 @@ def ai_ml_dl():
     return render_template("ai_ml_dl.html")
 
 
+@app.route("/data_types", methods=["GET", "POST"])
+def data_types():
+    return render_template("data_types.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

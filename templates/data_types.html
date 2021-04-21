@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Python Data Types</h2>
+<img src="../static/data_types.png" class="center" style="width: 50%">
+
+<p class="notes">
+    Everything in python is an object and each of those objects can be categorized as a particular class of data. Each class of data can be transformed by a unique set of operations. Knowing what class of data your working with and what functions can be used to transform the data are key to python proficiency. Many bugs or errors can be avoided by using the right data type and appropriate functions. Python data types can be broken down into five categories:
+</p>
+<div class="note-container">
+    <ul>
+        <li>Numeric</li>
+        <li>Sequence</li>
+        <li>Boolean</li>
+        <li>Set</li>
+        <li>Dictionary</li>
+    </ul>
+</div>
+<h3 class="notes">Numeric</h3>
+<p class="notes">
+    Numeric data types are used to represent numeric values. There are three categories of numeric data.
+</p>
+<div class="note-container">
+    <ul>
+        <li>
+            <strong>Integer</strong> - Represented by the <i>int</i> class, this data type contains positive or negative whole numbers (no fractions or decimals). For example, 2 is an <i>int</i> but 2.0 is not. Similarly, -1,453,433 is an <i>int</i> but 10x + y is not. There is no limit to how long an integer value can be.
+        </li>
+        <pre><code class="python">type(10)
+class 'int'</code></pre>
+        <li>
+            <strong>Float</strong> - Represented by the <i>float</i> class, this data type contains reals numbers with floating point representation. For example, 2.0 and -5.7 are both <i>floats</i>. Importantly, numeric values specified by scientific notation are also represented by the <i>float</i> data type. For example, 2E-1 and -1.2E4 are both <i>floats</i>. The maximum value for a float is 1.8E308. Any number greater than that is represented by the str <i>inf</i>. The closest a nonzero number can be to zero is 5.0E-324.
+        </li>
+        <pre><code class="python">type(4.2)
+class 'float'</code></pre>
+        <li>
+            <strong>Complex Number</strong> - Complex numbers contain bot real numbers and imiginary parts. For example, 5 + 7y is a complex number because it contains two real numbers (5 and 7) and one imiginary part (y).
+        </li>
+        <pre><code class="python">type(5 + 7y)
+class 'complex'</code></pre>
+    </ul>
+</div>
+<h3 class="notes">Sequence</h3>
+<p class="notes">
+    Sequence data types are the ordered collection of similiar or different data types and enable the efficient and organzied storage of multiple values. There are three categories of sequence data.
+</p>
+<div class="note-container">
+    <ul>
+        <li>
+            <strong>String</strong> - Represented by the <i>str</i> class, strings are collections of text characters put between single, double, or triple quotes. For example, "python is fun" is a string because it contains an array of text bound by double quotes. The only limit to the number of characters in a string is yor machine's memory.
+        </li>
+        <pre><code class="python"># Create a string
+String = "Python is fun"
+print(String)
+"Python is fun"
+
+# Print the first character 
+print(String[0])
+P
+
+print(type(String))
+class 'str'</code></pre>
+        <li>
+            <strong>List</strong> - Lists are ordered collections of data placed between square brackets are represented by the <i>list</i> class. The data in a list does not need to be of the same type. For example, ["python", "is", "fun"] and ["one", 1, "two", 2] are both lists. An important characteristic of lists is that they're mutable (they can be changed).
+        </li>
+        <pre><code class="python"># Create a List using multiple strings
+List = ["Python", "is", "fun"]
+print(List)
+"Python is fun"
+["Python", "is", "fun"]
+
+# Extract a specific element from the list using the index number (lists are ordered)
+print(List[0])
+Python
+            
+print(type(List))
+class 'List'</code></pre>
+        <li>
+            <strong>Tuple</strong> - Tuples, like lists, are ordered collections of data. However, unlike lists, tuples are immutable (they cannot be modified). Tuples are represented by the <i>tuple</i> class and contain any number of any datatype bound by curly brackets. {2, 1, 4} and {"python", "is", "fun"} are examples of tuples.
+        </li>
+        <pre><code class="python"># Create a Tuple using strings 
+Tuple = ('Python' 'is' 'fun')
+print(Tuple)
+('Python' 'is' 'fun')
+            
+# Create a Tuple using a list 
+List = ['Python' 'is' 'fun']
+Tuple = tuple(List)
+print(Tuple)
+('Python' 'is' 'fun')
+
+# Create a Tuple using the built-in function 
+Tuple = tuple(('Python' 'is' 'fun'))
+print(Tuple)
+('Python' 'is' 'fun')
+</code></pre>
+    </ul>
+</div>
+<h3 class="notes">Boolean</h3>
+<p class="notes">
+    Boolean data, represented by the <i>bool</i> class, are used for one of two built-in values, <i>True</i> or <i>False</i>. Boolean data is typically used to evaluate whether data meet certain criteria. For example:
+</p>
+<pre><code class="python"># Define x and y as numeric values
+x = 10
+y = 5
+
+# Evaluate whether or not x is greater than y
+if x > y:
+    print("x is greater than y")
+else:
+    print("x is not greater than y")
+</code></pre>
+<p class="notes">
+    The above script evaluates <i>x > y</i> as <i>True</i> and returns "x is greater than y".
+</p>
+<h3 class="notes">Set</h3>
+<p class="notes">
+    Sets are unordered collections data created using the built-in <i>set()</i> function. Sets are similiar to lists in that they're iterable and mutable but differ in that they do not contain duplicate data. For example, {"Python", "is", "fun"} is a set but {"Python", "Python", "is", "fun"} is not a list.
+</p>
+<h3 class="notes">Dictionary</h3>
+<p class="notes">
+    Dictionaries are unordered collections of key-value data pairs. Each key-value data pair in a dictionary is separated by a colon and each set of key-value pairs are separated from eachother by commas. Dictionaries are created by placing key-value pairs within curly braces separated by a comma or by using the buil-in <i>dict()</i> function.
+</p>
+<pre><code class="python"># Create a Dictionary using key-value pairs and curly braces 
+Dict = {1: 'Python', 2: 'is', 3: 'fun'}
+print(Dict)
+{1: 'Python', 2: 'is', 3: 'fun'}
+
+# Create a Dictionary using dict() 
+Dict = dict({1: 'Python', 2: 'is', 3: 'fun'})
+print(Dict)
+{1: 'Python', 2: 'is', 3: 'fun'}
+</code></pre>
+{% endblock %}
