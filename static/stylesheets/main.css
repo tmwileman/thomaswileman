@@ -121,6 +121,13 @@ ul {
   list-style-position: inside;
   padding-left: 5%;
   padding-right: 5%;
+  background-color: white;
+  color: #000000;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: auto;
 }
 
 ul.no-bullets {
@@ -154,7 +161,7 @@ code {
   background-color: #eee;
   border: 1px solid #999;
   display: block;
-  width: 60%;
+  width: 50%;
   margin: auto;
 }
   

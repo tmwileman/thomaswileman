@@ -21,37 +21,48 @@
     Numeric data types are used to represent numeric values. There are three categories of numeric data.
 </p>
 <div class="note-container">
-    <ul>
+    <ul class="no-bullets">
         <li>
             <strong>Integer</strong> - Represented by the <i>int</i> class, this data type contains positive or negative whole numbers (no fractions or decimals). For example, 2 is an <i>int</i> but 2.0 is not. Similarly, -1,453,433 is an <i>int</i> but 10x + y is not. There is no limit to how large an integer value can be.
         </li>
-        <pre><code class="python">type(10)
+    </ul>
+</div>
+<pre><code class="python">type(10)
 class 'int'
 </code></pre>
+<div class="note-container">
+    <ul class="no-bullets">
         <li>
             <strong>Float</strong> - Represented by the <i>float</i> class, this data type contains reals numbers with floating point representation. For example, 2.0 and -5.7 are both <i>floats</i>. Importantly, numeric values specified by scientific notation are also represented by the <i>float</i> data type. For example, 2E-1 and -1.2E4 are both <i>floats</i>. The maximum value for a float is 1.8E308. Any number greater than that is represented by the str <i>inf</i>. The closest a nonzero number can be to zero is 5.0E-324.
         </li>
-        <pre><code class="python">type(4.2)
+    </ul>
+</div>
+<pre><code class="python">type(4.2)
 class 'float'
 </code></pre>
+<div class="note-container">
+    <ul class="no-bullets">
         <li>
             <strong>Complex Number</strong> - Complex numbers contain both real numbers and imiginary parts. For example, 5 + 7y is a complex number because it contains two real numbers (5 and 7) and one imiginary part (y).
         </li>
-        <pre><code class="python">type(5 + 7y)
+    </ul>
+</div>
+<pre><code class="python">type(5 + 7y)
 class 'complex'
 </code></pre>
-    </ul>
+</ul>
 </div>
 <h3 class="notes">Sequence</h3>
 <p class="notes">
     Sequence data types are the ordered collection of similiar or different data types and enable the efficient and organzied storage of multiple values. There are three categories of sequence data.
 </p>
 <div class="note-container">
-    <ul>
+    <ul class="no-bullets">
         <li>
             <strong>String</strong> - Represented by the <i>str</i> class, strings are collections of text characters put between single, double, or triple quotes. For example, "python is fun" is a string because it contains an array of text bound by double quotes. The only limit to the number of characters in a string is yor machine's memory.
         </li>
-        <pre><code class="python"># Create a string
+</div>
+<pre><code class="python"># Create a string
 String = "Python is fun"
 print(String)
 "Python is fun"
@@ -63,10 +74,14 @@ P
 print(type(String))
 class 'str'
 </code></pre>
+<div class="note-container">
+    <ul class="no-bullets">
         <li>
             <strong>List</strong> - Lists are ordered collections of data placed between square brackets and represented by the <i>list</i> class. The data in a list does not need to be of the same type. For example, ["python", "is", "fun"] and ["one", 1, "two", 2] are both lists. An important characteristic of lists is that they're mutable (they can be changed).
         </li>
-        <pre><code class="python"># Create a List using multiple strings
+    </ul>
+</div>
+<pre><code class="python"># Create a List using multiple strings
 List = ["Python", "is", "fun"]
 print(List)
 ["Python", "is", "fun"]
@@ -78,10 +93,14 @@ Python
 print(type(List))
 class 'List'
 </code></pre>
+<div class="note-container">
+    <ul class="no-bullets">
         <li>
             <strong>Tuple</strong> - Tuples, like lists, are ordered collections of data. However, unlike lists, tuples are immutable (they cannot be modified). Tuples are represented by the <i>tuple</i> class and contain any number of any datatypes bound by curly brackets. {2, 1, 4} and {"python", "is", "fun"} are examples of tuples.
         </li>
-        <pre><code class="python"># Create a Tuple using a list 
+    </ul>
+</div>
+<pre><code class="python"># Create a Tuple using a list 
 List = ['Python', 'is', 'fun']
 Tuple = tuple(List)
 print(Tuple)
@@ -92,8 +111,6 @@ Tuple = tuple(('Python' 'is' 'fun'))
 print(Tuple)
 ('Python' 'is' 'fun')
 </code></pre>
-    </ul>
-</div>
 <h3 class="notes">Boolean</h3>
 <p class="notes">
     Boolean data, represented by the <i>bool</i> class, are used for one of two built-in values, <i>True</i> or <i>False</i>. Boolean data is typically used to evaluate whether data meet certain criteria. For example:
