@@ -154,7 +154,7 @@ code {
   background-color: #eee;
   border: 1px solid #999;
   display: block;
-  width: 50%;
+  width: 60%;
   margin: auto;
 }
   
@@ -337,6 +337,19 @@ width: 20%;
     width: 80%;
     padding-top: 2%;
   }
+
+  p.notes {
+    background-color: white;
+    color: #000000;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 100%;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80%;
+    margin: auto;
+    }
 
   .float-container {
     padding: 10px;

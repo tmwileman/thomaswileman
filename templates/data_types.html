@@ -2,7 +2,7 @@
 
 {% block body %}
 <h2 class="notes">Python Data Types</h2>
-<img src="../static/data_types.png" class="center" style="width: 50%">
+<img src="../static/data_types.png" class="center" style="width: 60%">
 
 <p class="notes">
     Everything in python is an object and each of those objects can be categorized as a particular class of data. Each class of data can be transformed by a unique set of operations. Knowing what class of data your working with and what functions can be used to transform the data are key to python proficiency. Many bugs or errors can be avoided by using the right data type and appropriate functions. Python data types can be broken down into five categories:
@@ -23,20 +23,23 @@
 <div class="note-container">
     <ul>
         <li>
-            <strong>Integer</strong> - Represented by the <i>int</i> class, this data type contains positive or negative whole numbers (no fractions or decimals). For example, 2 is an <i>int</i> but 2.0 is not. Similarly, -1,453,433 is an <i>int</i> but 10x + y is not. There is no limit to how long an integer value can be.
+            <strong>Integer</strong> - Represented by the <i>int</i> class, this data type contains positive or negative whole numbers (no fractions or decimals). For example, 2 is an <i>int</i> but 2.0 is not. Similarly, -1,453,433 is an <i>int</i> but 10x + y is not. There is no limit to how large an integer value can be.
         </li>
         <pre><code class="python">type(10)
-class 'int'</code></pre>
+class 'int'
+</code></pre>
         <li>
             <strong>Float</strong> - Represented by the <i>float</i> class, this data type contains reals numbers with floating point representation. For example, 2.0 and -5.7 are both <i>floats</i>. Importantly, numeric values specified by scientific notation are also represented by the <i>float</i> data type. For example, 2E-1 and -1.2E4 are both <i>floats</i>. The maximum value for a float is 1.8E308. Any number greater than that is represented by the str <i>inf</i>. The closest a nonzero number can be to zero is 5.0E-324.
         </li>
         <pre><code class="python">type(4.2)
-class 'float'</code></pre>
+class 'float'
+</code></pre>
         <li>
-            <strong>Complex Number</strong> - Complex numbers contain bot real numbers and imiginary parts. For example, 5 + 7y is a complex number because it contains two real numbers (5 and 7) and one imiginary part (y).
+            <strong>Complex Number</strong> - Complex numbers contain both real numbers and imiginary parts. For example, 5 + 7y is a complex number because it contains two real numbers (5 and 7) and one imiginary part (y).
         </li>
         <pre><code class="python">type(5 + 7y)
-class 'complex'</code></pre>
+class 'complex'
+</code></pre>
     </ul>
 </div>
 <h3 class="notes">Sequence</h3>
@@ -58,14 +61,14 @@ print(String[0])
 P
 
 print(type(String))
-class 'str'</code></pre>
+class 'str'
+</code></pre>
         <li>
-            <strong>List</strong> - Lists are ordered collections of data placed between square brackets are represented by the <i>list</i> class. The data in a list does not need to be of the same type. For example, ["python", "is", "fun"] and ["one", 1, "two", 2] are both lists. An important characteristic of lists is that they're mutable (they can be changed).
+            <strong>List</strong> - Lists are ordered collections of data placed between square brackets and represented by the <i>list</i> class. The data in a list does not need to be of the same type. For example, ["python", "is", "fun"] and ["one", 1, "two", 2] are both lists. An important characteristic of lists is that they're mutable (they can be changed).
         </li>
         <pre><code class="python"># Create a List using multiple strings
 List = ["Python", "is", "fun"]
 print(List)
-"Python is fun"
 ["Python", "is", "fun"]
 
 # Extract a specific element from the list using the index number (lists are ordered)
@@ -73,17 +76,13 @@ print(List[0])
 Python
             
 print(type(List))
-class 'List'</code></pre>
+class 'List'
+</code></pre>
         <li>
-            <strong>Tuple</strong> - Tuples, like lists, are ordered collections of data. However, unlike lists, tuples are immutable (they cannot be modified). Tuples are represented by the <i>tuple</i> class and contain any number of any datatype bound by curly brackets. {2, 1, 4} and {"python", "is", "fun"} are examples of tuples.
+            <strong>Tuple</strong> - Tuples, like lists, are ordered collections of data. However, unlike lists, tuples are immutable (they cannot be modified). Tuples are represented by the <i>tuple</i> class and contain any number of any datatypes bound by curly brackets. {2, 1, 4} and {"python", "is", "fun"} are examples of tuples.
         </li>
-        <pre><code class="python"># Create a Tuple using strings 
-Tuple = ('Python' 'is' 'fun')
-print(Tuple)
-('Python' 'is' 'fun')
-            
-# Create a Tuple using a list 
-List = ['Python' 'is' 'fun']
+        <pre><code class="python"># Create a Tuple using a list 
+List = ['Python', 'is', 'fun']
 Tuple = tuple(List)
 print(Tuple)
 ('Python' 'is' 'fun')
