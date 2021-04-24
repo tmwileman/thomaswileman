@@ -41,5 +41,10 @@ def data_types():
     return render_template("data_types.html")
 
 
+@app.route("/perceptron_primer", methods=["GET", "POST"])
+def perceptron_primer():
+    return render_template("perceptron_primer.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
