@@ -29,11 +29,11 @@
 <p class="notes">
     Let's solidify the above with an example. Consider a scenario in which we're trying to predict whether a student will be admitted to a University or not. We have a dataset containing the following three variables, their grades and SAT scores on a scale of 1 to 10 and whether or not they were admitted into the University. Initial analysis indicates that the linear boundary, <i>x + y - 15 = 0</i>, provides a good indication of whether a student was accepted into the university; those whose weighted sum is greater than or equal to 0 are accepted and those whose weighted sum is less than zero are rejected.
 </p>
-<img src="../static/perceptron_primer_example_1.svg" class="center-image" style="width: 60%">
+<img src="../static/perceptron_primer_example_1.svg" class="center-image">
 <p class="notes">
     Our perceptron is simply the encoding of the above equation. The inputs to the perceptron are the students grades and test scores. The weights associated with the grades and test scores are both 1. The weight associated with the bias is -15. These equate to our linear boundary which is represented by the node containing our graph. Finally, we use a binary step activation function to map our weighted sum to a resulting value of either 0 or 1. We can see that a student with grade and test scores of 7 and 9 respectively would have a weighted sum of 1. Our binary step activation function would thus return a value of 1, indicating the student would be admitted.
 </p>
-<img src="../static/perceptron_primer_example_2.svg" class="center-image" style="width: 60%">
+<img src="../static/perceptron_primer_example_2.svg" class="center-image">
 <p class="notes">
     This is an example of a single-layer perceptron and is only capable of learning linearly separable patterns (think y=mx+b). Models with two or more layers of perceptrons are known as feedforward neural networks. These multilayer perceptrons are capable of evaluating non-linear separable patterns; making them capable of finding patterns or insights simple single-layer perceptrons are incapable of finding.
 </p>
