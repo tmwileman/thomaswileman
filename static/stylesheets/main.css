@@ -211,6 +211,34 @@ margin-top: 10px;
   width: 60%;
 }
 
+.center-image-small {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 7%;
+}
+
+.center-image-medium {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.center-image-large {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.center-image-xlarge {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
 table td {
   border-left: 1px solid #000;
   border-right: 1px solid #000;
@@ -339,6 +367,41 @@ width: 20%;
     padding: 10px;
     width: 98%;
     margin: auto;
+  }
+
+  .center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800%;
+  }
+  
+  .center-image-small {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 28%;
+  }
+  
+  .center-image-medium {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+  
+  .center-image-large {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+  .center-image-xlarge {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
   }
 
   p.resume { 
