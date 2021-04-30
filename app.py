@@ -16,11 +16,6 @@ def notes():
     return render_template("notes.html")
 
 
-@app.route("/eli5", methods=["GET", "POST"])
-def eli5():
-    return render_template("eli5.html")
-
-
 @app.route("/about", methods=["GET", "POST"])
 def about():
     return render_template("about.html")
