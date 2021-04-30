@@ -246,6 +246,17 @@ table td {
   vertical-align: middle;
 }
 
+table.logic-gate {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  text-align: center; 
+  vertical-align: middle;
+  width: 12%;
+  margin: auto;
+}
+
 /* Style the header with a green background and some padding */
 div.header {
 display: inline-block;

@@ -1,0 +1,601 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Perceptrons as Logic Gates</h2>
+<img src="../static/perceptron_primer.svg" class="center-image">
+
+<p class="notes">
+    Perceptrons are designed to mimic the decision processes that take place in the human brain. In <a href="http://www.thomaswileman.com/perceptron_primer">Perceptron Primer</a> we discussed the structure of a perceptron and how it works. An important component
+    of that structure are the weights used to modify inputs and bias. These weights can be modified to create logical operators; simple models take in two or more inputs, perform a boolean operation (true or false), and return a binary result. Importantly, three simple logical operators, AND, OR, and NOT, have been found to manipulate data in much the same way our brains do. This means that by encoding perceptrons with simple logical operators and placing them in various configurations we can simulate how our brain's process information.
+</p>
+<h3 class="notes">
+    AND Perceptron
+</h3>
+<p class="notes">
+    The natural language equivalent of the AND logic gate is "if A and B are True return True, else return False". For example, if A is True and B is False an AND operator will return False. However, if A is True and B is True the AND operator will return True. These and the other possible combinations are represented in the table below.
+</p>
+<table class="logic-gate">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    A
+                </p>
+            </th>
+            <th>
+                <p>
+                    B
+                </p>
+            </th>
+            <th>
+                <p>
+                    Result
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Consider an example in which we would like to generate an AND operator for the linear function <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B = 0</math>. Given the following inputs, [(0,0), (1,0), (0,1), (1,1)], we expect the AND operator to give the following results, [False, False, False, True]. We need to identify a combination of weights and bias that will provide the desired results. We can achieve these results when we set each weight equal to 1 and the bias equal to -2 (this is not the only solution). The table below shows how the weighted sums of each input provide the desired results.
+</p>
+<table style="width: 60%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Input 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Input 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Bias
+                </p>
+            </th>
+            <th>
+                <p>
+                    <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B</math>
+                </p>
+            </th>
+            <th>
+                <p>
+                    Output
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Represented grapically:
+</p>
+<img src="../static/images/perceptrons_and_logic_gates/AND_perceptron.svg" class="center-image">
+<h3 class="notes">
+    OR Perceptron
+</h3>
+<p class="notes">
+    The natural language equivalent of the OR logic gate is "if A or B are True return True, else return False". For example, if A is True and B is False an AND operator will return True. However, if A is False and B is False the OR operator will return False. These and the other possible combinations are represented in the table below.
+</p>
+<table class="logic-gate">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    A
+                </p>
+            </th>
+            <th>
+                <p>
+                    B
+                </p>
+            </th>
+            <th>
+                <p>
+                    Result
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Consider an example in which we would like to generate an OR operator for the same linear function used above, <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B = 0</math>. Given the following inputs, [(0,0), (1,0), (0,1), (1,1)], we expect the OR operator to give the following results, [False, True, True, True]. We need to identify a combination of weights and bias that will provide the desired results.
+</p>
+<p class="notes">
+    An interesting way to think about this considering how we might make an OR operator out of an AND operator. This can be done by increasing the weights of each input to the inverse of the bias (e.g. each weight has a value of 2 and the bias has a value of -2). Similarly, we could decrease the value of the bias. Each of these methods has the effect of making any one of the inputs enough to counteract the bias, resulting in a value of 1.
+</p>
+<p class="notes">
+    In our case, one way to create an OR operator is to set each weight equal to 2 and the bias equal to -2. The table below shows how the weighted sums of each input provide the desired results.
+</p>
+<table style="width: 60%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Input 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Input 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Bias
+                </p>
+            </th>
+            <th>
+                <p>
+                    <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B</math>
+                </p>
+            </th>
+            <th>
+                <p>
+                    Output
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Represented grapically:
+</p>
+<img src="../static/images/perceptrons_and_logic_gates/OR_perceptron.svg" class="center-image">
+
+
+{% endblock %}

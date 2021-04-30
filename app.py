@@ -46,5 +46,10 @@ def perceptron_primer():
     return render_template("perceptron_primer.html")
 
 
+@app.route("/perceptrons_and_logic_gates", methods=["GET", "POST"])
+def perceptron_and_logic_gates():
+    return render_template("perceptrons_and_logic_gates.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
