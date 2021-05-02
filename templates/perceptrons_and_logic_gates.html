@@ -2,11 +2,10 @@
 
 {% block body %}
 <h2 class="notes">Perceptrons as Logic Gates</h2>
-<img src="../static/perceptron_primer.svg" class="center-image">
 
 <p class="notes">
     Perceptrons are designed to mimic the decision processes that take place in the human brain. In <a href="http://www.thomaswileman.com/perceptron_primer">Perceptron Primer</a> we discussed the structure of a perceptron and how it works. An important component
-    of that structure are the weights used to modify inputs and bias. These weights can be modified to create logical operators; simple models take in two or more inputs, perform a boolean operation (true or false), and return a binary result. Importantly, three simple logical operators, AND, OR, and NOT, have been found to manipulate data in much the same way our brains do. This means that by encoding perceptrons with simple logical operators and placing them in various configurations we can simulate how our brain's process information.
+    of that structure are the weights used to modify inputs and bias. These weights can be modified to create logical operators; simple models take in any number of inputs, perform a boolean operation (true or false), and return a binary result. Importantly, three simple logical operators, AND, OR, and NOT, have been found to manipulate data in much the same way our brains do. This means that by encoding perceptrons with simple logical operators and placing them in various configurations we can simulate how our brain's process information.
 </p>
 <h3 class="notes">
     AND Perceptron
@@ -303,7 +302,7 @@
     OR Perceptron
 </h3>
 <p class="notes">
-    The natural language equivalent of the OR logic gate is "if A or B are True return True, else return False". For example, if A is True and B is False an AND operator will return True. However, if A is False and B is False the OR operator will return False. These and the other possible combinations are represented in the table below.
+    The natural language equivalent of the OR logic gate is "if A or B are True return True, else return False". For example, if A is True and B is False an OR operator will return True. However, if A is False and B is False the OR operator will return False. These and the other possible combinations are represented in the table below.
 </p>
 <table class="logic-gate">
     <tbody>
@@ -596,6 +595,651 @@
     Represented grapically:
 </p>
 <img src="../static/images/perceptrons_and_logic_gates/OR_perceptron.svg" class="center-image">
-
-
+<h3 class="notes">
+    NOT Perceptron
+</h3>
+<p class="notes">
+    NOT logic gates only care about one input and simply return the inverse of that input. The natural language equivalent of the NOT logic gate is "if A is True return False". This logic is represented in the table below.
+</p>
+<table class="logic-gate">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    A
+                </p>
+            </th>
+            <th>
+                <p>
+                    Result
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Consider an example in which we would like to generate a NOT operator that acts on the second input for the linear function, <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B = 0</math>. Given the following inputs, [(0,0), (1,0), (0,1), (1,1)], we expect the NOT operator to give the following results, [True, False, True, False]. We expect this because the NOT operator will ignore the first input, evaluate the second input, and return the inverse of the second input. We need to identify a combination of weights and bias that will provide the desired results.
+</p>
+<table style="width: 60%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Input 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 1
+                </p>
+            </th>
+            <th>
+                <p>
+                    Input 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Weight 2
+                </p>
+            </th>
+            <th>
+                <p>
+                    Bias
+                </p>
+            </th>
+            <th>
+                <p>
+                    <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B</math>
+                </p>
+            </th>
+            <th>
+                <p>
+                    Output
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Represented grapically:
+</p>
+<img src="../static/images/perceptrons_and_logic_gates/NOT_perceptron.svg" class="center-image">
+<h3 class="notes">
+    XOR Perceptron
+</h3>
+<p class="notes">
+    The AND, OR, and NOT logic gates can be created using single perceptrons. However, we can combine AND, OR, and NOT logic gates to create slightly more complex operators. We do this by placing the AND, OR, and NOT logic gates into layers. Machine learning algorithms that use multiple layers of perceptrons are known as Deep Learning algorithms.
+</p>
+<p class="notes">
+    One logic gate that requires layers of perceptrons is the Exclusive OR (XOR) logic gate. The natural languate equivalent of the XOR logic gate is "if A is not B, return True, else return False". For example, if A is True and B is True, an XOR logic gate returns False. However, if A is True and B is False, the XOR logic gate returns True.
+</p>
+<table class="logic-gate">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    A
+                </p>
+            </th>
+            <th>
+                <p>
+                    B
+                </p>
+            </th>
+            <th>
+                <p>
+                    Result
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    XOR logic can not be acheived in a single boolean step (A or B is True and A is not equal to B). Thus, we require a network of perceptrons to achieve the desired results outlined in the table below. A combination of logic gates that results in a XOR logic gate is depicted below.
+</p>
+<img src="../static/images/perceptrons_and_logic_gates/XOR_perceptron.svg" class="center-image">
+<h3 class="notes">
+    NOR, XNOR, and NAND Perceptrons
+</h3>
+<p class="notes">
+    Similar to the XOR logic gate, we can use different layers of the AND, OR, and NOT logic gates to create the NOR, XNOR, and NAND logic gates. There are various ways to construct each of these gates.
+</p>
+<table style="width: 80%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <td>
+                <table class="logic-gate" style="width:35%;">
+                    <p>
+                        NOR Logic Gate
+                    </p>
+                    <p class="notes">
+                        Returns positive outputs only when both inputs are negative
+                    </p>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    A
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    B
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    Result
+                                </p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="logic-gate" style="width:35%">
+                    <p>
+                        XNOR Logic Gate
+                    </p>
+                    <p class="notes">
+                        Returns positive outputs only when both inputs are the same
+                    </p>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    A
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    B
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    Result
+                                </p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="logic-gate" style="width: 35%">
+                    <p>
+                        NAND Logic Gate
+                    </p>
+                    <p class="notes">
+                        Returns a False output only if allof the inputs are True
+                    </p>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <p>
+                                    A
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    B
+                                </p>
+                            </th>
+                            <th>
+                                <p>
+                                    Result
+                                </p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    1
+                                </p>
+                            </td>
+                            <td>
+                                <p class="notes">
+                                    0
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}
