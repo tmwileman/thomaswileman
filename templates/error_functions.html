@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Error and Optimization Functions</h2>
+<p class="notes">
+    Error functions, also known as loss functions, evaluate how well an algorithm models a data set. If the algorithm's predicted values deviate significantly from the data set's actual values, the loss function calculates a large error. If the algorithm's predicted values do not deviate much from the data set's actual values, a small error is calculated. This process of evaluating error is important because we can use the output to refine a function. This refinement is done using optimization functions. Optimization functions minimize the loss function's output by updating the weights and bias in perceptrons.
+</p>
+<p class="notes">
+    The process of calculating an error and then updating the weights and bias used make a prediction is powerful. Repeated enough times, we can achieve extremly low error rates and make suprisingly accurate predictions. Importantly, this process is what defines a machine learning algorithm. When ML Engineers and Data Scientists talk about algorithms capable of being trained, this is the process they're referring to.
+</p>
+<p class="notes">
+    There are several ways to calculate an algorithms error and then optimize it. In the following sections we'll cover a few of the most common methods.
+</p>
+<h3 class="notes">
+    Error Functions
+</h3>
+<h4 class="notes">
+    Mean Squared Error (MSE)
+</h4>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$MSE=\frac{\sum_{i=1}^n(y_{i}-\hat{y}_{i})}{n}$$
+</math>
+<p class="notes">
+    The <i>mean square error</i> is simply the average of squared differences between each prediction and actual observation. To calculate manually, subtract the actual values from the predicted values, square the resulting values, add all of the squared differences together, and finally divide by the number of observations. To calculate using Python, the mean_squared_error method in the sklearn.metrics library (see below).
+</p>
+<p class="notes">
+    Note that the <i>mean squared error</i> loss function penalizes predictions that are far away from actual values much more heavily than predictions close to their corresponding actual values because errors are squared. This means that resulting predictions will not have any outliers with large errors. Also, since we're calculating an average, <i>mean squared errors</i> will never be negative; preventing us from discerning direction.
+</p>
+<pre>
+    <code class="python"># Calculate the mean squared error between predicted and actual values
+>>> from sklearn.metrics import mean_squared_error
+>>> y_actual = [3, -0.5, 2, 7]
+>>> y_pred = [2.5, 0.0, 2, 8]
+>>> mean_squared_error(y_true, y_pred)
+0.375</code>
+</pre>
+<h4 class="notes">
+    Mean Absolute Error (MAE)
+</h4>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$MAE=\frac{\sum_{i=1}^n|y_{i}-\hat{y}_{i}|}{n}$$
+</math>
+<p class="notes">
+    The <i>mean absolute error</i> is simply the average of the absolute differences between each prediction and actual observation. To calculate manually, subtract the actual values from the predicted values, add all of the differences together, and finally divide by the number of observations. To calculate using Python, the mean_absolute_error method in the sklearn.metrics library (see below).
+</p>
+<p class="notes">
+    Note that the <i>mean absolute error</i> loss function measures absolute differences and does not indicate direction. This means that all errors will be weighted on the same scale. This means that the loss function treats all observations equally.
+</p>
+<pre>
+    <code class="python"># Calculate the mean absolute error between predicted and actual values
+>>> from sklearn.metrics import mean_absolute_error
+>>> y_actual = [3, -0.5, 2, 7]
+>>> y_pred = [2.5, 0.0, 2, 8]
+>>> mean_squared_error(y_true, y_pred)
+0.5</code>
+</pre>
+<h4 class="notes">
+    Huber Loss
+</h4>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$L_{\delta_{\mathrm{}}}=
+    \begin{cases}
+    \frac{1}{2}(y-f(x))^2 & \text{for|y-f(x)|}\leq\delta_{\mathrm{}} \\
+    \delta_{\mathrm{}}|y-f(x)|-/frac{1}{2}\delta_{\mathrm{}}^2 & \text{otherwise}
+    \end{cases}$$
+</math>
+<p class="notes">
+    The <i>Huber Loss Function</i> offers the best of both the MSE and the MAE loss functions (MSE heavily penalizes outliers while the MAE ignores them). The <i>Huber Loss Function</i> relies on the parameter &#x3B4 to determine whether an observation will be heavily penalized or not. This parameter is tunable to optimize performance. When the difference between an predicted and actual value is less than or equal to &#x3B4, the <i>Huber Loss Function</i> applyies the MSE loss function. However, if the difference between a predicted and actual value is greater than &#x3B4, the <i>Huber Loss Function</i> applyies the MAE loss function. To calculate using Python, the mean_squared_error method in the sklearn.metrics library (see below).
+</p>
+<p class="notes">
+    Note that the <i>mean absolute error</i> loss function measures absolute differences and does not indicate direction. This means that all errors will be weighted on the same scale. This means that the loss function treats all observations equally.
+</p>
+<pre>
+    <code class="python"># Calculate the Huber Loss error between predicted and actual values
+>>> import matplotlib.pyplot as plt
+
+>>> #Huber Loss Function
+>>> def huber_loss(y_pred, y_actual, delta=1.0):
+    huber_mse = 0.5*(y_actual - y_pred)**2
+    huber_mae = delta * (np.abs(y_actual - y_pred) - 0.5 * delta)
+    return np.where(np.abs(y_actual, y_pred) <= delta, huber_mse, huber_mae)
+
+>>> y_actual = np.array([3, -0.5, 2, 7])
+>>> y_pred = np.array([2.5, 0.0, 2, 8])
+>>> huber_loss(y_actual, y_pred)
+array([ 0.   ,  0.125, -0.5  ,  0.5  ])</code>
+</pre>
+<h3 class="notes">
+    Optimization Functions
+</h3>
+<h4 class="notes">
+    Gradient Descent
+</h4>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    \begin{cases}
+    $$W=W-\alpha\frac{\alpha}{\alpha*W}J(W) & \text{to update weights} \\
+    $$b=b-\alpha\frac{\alpha}{\alpha*b}J(b) & \text{to update bias}
+    \end{cases}$$
+</math>
+<p class="notes">
+    Gradient Descent is commonly used to optimize linear regression and classification algorithms. It relies on the output of the loss function, <i>J</i>, and user defined learning rate, &#x3B1, to incrementally update the weights and bias in the prediction algorithm. Importantly, the change is a factor of the weight, or bias, and loss function's first order derivative. This provides the direction (whether the function is increasing or decreasing).
+</p>
+<p class="notes">
+    Learning rates have a significant impact on an optimization function's performance. Think of learning rates as stride length. Large learning rates mean large strides and small learning rates mean small strides. Large strides are beneficial when you're far away from your goal (fast convergence) but you can run the risk of overshooting. Small strides are beneficial when you're close to your goal because you can get incrementally closer with out overshooting; however, you may take a long time to get there because you're taking very small steps (slow convergence).
+</p>
+<pre>
+    <code class="python"># Gradient Descent Function
+>>> import numpy as np
+
+>>> def gradient_descent(gradient, start, learn_rate, n_iter=50, tolerance=1e-06):
+        vector = start
+        for _ in range(n_iter):
+        diff = -learn_rate * gradient(vector)
+        if np.all(np.abs(diff) <= tolerance):
+            break
+        vector += diff
+    return vector
+
+>>> gradient_descent(gradient=lambda v: 2 * v, start=10.0, learn_rate=0.2)
+2.210739197207331e-06
+
+<a href="https://realpython.com/gradient-descent-algorithm-python/">Real Python</a></code>
+</pre>
+<h4 class="notes">
+    Stochastic Gradient Descent
+</h4>
+<p class="notes">
+    Stochastic Gradient Descent works in much the same way Gradient Descent does. However, instead of calculating the derivatives for every observation and feature combination in the dataset (like Gradient Descent does), Stochastic Gradient Descent calculates the derivatives for only one observation.
+</p>
+<p class="notes">
+    Consider a dataset containing 10 features for 1,000 observations. If we were to calculate the Gradient Descent of this dataset, we would need to calculate the derivative of each feature/observation combination; (10,000) computations. Now consider that we'd like to train the model by running 1,000 iterations. This increases the number of computations to 100,000. This is a computationaly intensive process and could take some time to complete.
+</p>
+<p class="notes">
+    Using Stochastic Gradient Descent, instead of calculating the derivative for each observation/features combination, we calculate the derivatives for only one observation/features combination. This means that in a dataset with 10 features describing 1,000 observations, one iteration of the model will have 10 calculations. In the 1,000 iteration training run we'd end up with 10,000 calculations. 10X less than when we used Gradient Descent.
+</p>
+<p class="notes">
+    The difference between Gradient Descent and Stochastic Gradient Descent is a trade off between convergence and minimized errors. Gradient Descent will almost certainly result in a smaller error but will take a much longer time to complete. Stochastic Gradient Descent will converge faster but will not get as small of an error as Gradient Descent.
+</p>
+<pre>
+    <code class="python"># Use sklearns SGDClassifier to classify a dataset
+>>> from sklearn.linear_model import SGDClassifier
+
+>>> X = [[0., 0.], [1., 1.]]
+>>> y = [0, 1]
+>>> clf = SGDClassifier(loss="hinge", penalty="l2", max_iter=5) # Hinge: (soft-margin) linear Support Vector Machine
+>>> clf.fit(X, y)
+>>> SGDClassifier(max_iter=5)
+>>> clf.predict([[2., 2.]])
+array([1])
+
+<a href="https://scikit-learn.org/stable/modules/sgd.html">scikit-learn</a></code>
+</pre>
+<h4 class="notes">
+    Mini-Batch Gradient Descent
+</h4>
+<p class="notes">
+    Much the way the Huber Loss function split the difference between MAE and MSE, Mini-Batch Gradient Descent splits the difference between Gradient Descent and Stochastic Gradient Descent. Mini-Batch aims to take advantage of the fast convergence of Stochastic Gradient Descent and low errors of Gradient Descent by splitting the dataset into minibatches, computing the gradient for each minibatch, and then repeating as necessary. Splitting the dataset into minibatches enables much faster computation while including all observations.
+</p>
+<p class="notes">
+
+</p>
+<pre>
+    <code class="python"># Use sklearns SGDClassifier to classify a dataset
+>>> from sklearn.linear_model import SGDRegressor
+ 
+>>> def iter_minibatches(chunksize):
+        # Provide chunks one by one
+        chunkstartmarker = 0
+        while chunkstartmarker < numtrainingpoints:
+            chunkrows = range(chunkstartmarker,chunkstartmarker+chunksize)
+            X_chunk, y_chunk = getrows(chunkrows)
+            yield X_chunk, y_chunk
+            chunkstartmarker += chunksize
+         
+>>> def main():
+        batcherator = iter_minibatches(chunksize=1000)
+        model = SGDRegressor()
+         
+        # Train model
+        for X_chunk, y_chunk in batcherator:
+            model.partial_fit(X_chunk, y_chunk)
+         
+        # Now make predictions with trained model
+        y_predicted = model.predict(X_test)
+
+<a href="https://adventuresindatascience.wordpress.com/2014/12/30/minibatch-learning-for-large-scale-data-using-scikit-learn/">Code Credit to Apu Mishra</a></code>
+</pre>
+<h3 class="notes">
+    Conclusion
+</h3>
+<p class="notes">
+    There are many other error and optimization functions. I will update this document to include them as I learn about them. If you have any recommendations on which error or optimization functions I should study next, don't hesitate to contact me (links below).
+</p>
+{% endblock %}

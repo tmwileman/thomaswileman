@@ -46,5 +46,10 @@ def perceptron_and_logic_gates():
     return render_template("perceptrons_and_logic_gates.html")
 
 
+@app.route("/error_functions", methods=["GET", "POST"])
+def error_functions():
+    return render_template("error_functions.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
