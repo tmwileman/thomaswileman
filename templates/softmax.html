@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Softmax Function</h2>
+<p class="notes">
+    Softmax functions simply take numeric inputs and return probabilities. Each probability represents the proportion of its corresponding input as a part of all the inputs. This is important because when a neural network is used to predict an outcome, it will often return a vector that scores the inputs against each possible outcome. Unfortunately, these scores are not normalized or scaled (the scores don't sum to one), making the results difficult to interpret and poor inputs for follow-on ML algorithms&#185. The softmax function corrects this by converting the scores to a normalized probability distribution.
+</p>
+<p class="notes">
+    Consider a neural network tasked to classify an image as either a picture of a house, car, or fish. The neural network analyzes each image submitted and returns a vector that scores the inputs against each of the possible ouctomes. The neural network returns the following after we submit a new picture for analysis, [2, 1, 0]. We are unable to interpret these results and can't submit them as inputs to another machine learning algorithm. However, when we apply the softmax function, we get the following probabilities [0.67, 0.24, 0.09]. We can interpret these results (67% chance the image is of a house) and since the sum of the probabilities is 1 we can use them as inputs for another layer or ML algorithm.
+</p>
+<p class="notes">
+    Below is the softmax function.
+</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$\sigma(\overrightarrow{z})=\frac{e^{z_i}}{\sum_{j=1}^ke^{z_j}}$$
+</math>
+<p class="notes">
+    To calculate the softmax of a vector like the one mentioned above, [2, 1, 0], first calculate the exponential of each element in vector:
+</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$e^{z_1} = e^2 = 7.39$$
+    $$e^{z_2} = e^1 = 2.72$$
+    $$e^{z_3} = e^0 = 1$$
+</math>
+<p class="notes">
+    Next Calculate the sum of these values to obtain the normalization term:
+</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$\sum_{j=1}^ke^{z_j} = e^{z_1} + e^{z_2} + e^{z_3} = 7.39 + 2.72 + 1 = 11.11$$
+</math>
+<p class="notes">
+    Finally, divide each input by the normalization term to obtain the softmax outputs.
+</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$\overrightarrow{z}_1 = \frac{7.39}{11.11} = .67$$
+    $$\overrightarrow{z}_2 = \frac{2.72}{11.11} = .24$$
+    $$\overrightarrow{z}_3 = \frac{1}{11.11} = .09$$
+</math>
+<p class="notes">
+    Softmax using python:
+</p>
+<pre>
+    <code class="python"># Use scipy's softmax method to calculate a softmax
+>>> from scipy.special import softmax
+>>> import numpy as np
+
+>>> np.set_printoptions(precision=5)
+
+>>> x = np.array([2, 1, 0])
+>>> m = softmax(x)
+>>> m
+array([0.66524, 0.24473, 0.09003])
+
+<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.softmax.html">scipy</a></code>
+</pre>
+<p class="notes">
+    <a href="https://stackoverflow.com/questions/4674623/why-do-we-have-to-normalize-the-input-for-an-artificial-neural-network">&#185</a><i>There are 2 Reasons why we have to Normalize Input Features before Feeding them to Neural Network:
+        <ul class="no-bullets" style="width: 60%; margin: auto;">
+            <li>
+                <b>Reason 1:</b> If a Feature in the Dataset is big in scale compared to others then this big scaled feature becomes dominating and as a result of that, Predictions of the Neural Network will not be Accurate.
+            </li>
+            <li>
+                Example: In case of Employee Data, if we consider Age and Salary, Age will be a Two Digit Number while Salary can be 7 or 8 Digit (1 Million, etc..). In that Case, Salary will Dominate the Prediction of the Neural Network. But if we Normalize those Features, Values of both the Features will lie in the Range from (0 to 1).
+            </li>
+            <li>
+                <b>Reason 2:</b> Front Propagation of Neural Networks involves the Dot Product of Weights with Input Features. So, if the Values are very high (for Image and Non-Image Data), Calculation of Output takes a lot of Computation Time as well as Memory. Same is the case during Back Propagation. Consequently, Model Converges slowly, if the Inputs are not Normalized.
+            </li>
+            <li>
+                Example: If we perform Image Classification, Size of Image will be very huge, as the Value of each Pixel ranges from 0 to 255. Normalization in this case is very important.
+            </li>
+        </ul>
+    </i>
+</p>
+{% endblock %}
