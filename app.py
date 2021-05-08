@@ -51,5 +51,10 @@ def error_functions():
     return render_template("error_functions.html")
 
 
+@app.route("/softmax", methods=["GET", "POST"])
+def softmax():
+    return render_template("softmax.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
