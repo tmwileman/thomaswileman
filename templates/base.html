@@ -14,15 +14,15 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_HTML">
+    </script>
     <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {inlineMath: [['$','$']]},
-          "HTML-CSS": { linebreaks: { automatic: true } },
-          CommonHTML: { linebreaks: { automatic: true } },
-          SVG: { linebreaks: { automatic: true } }
+        MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready", function () {
+          var HTMLCSS = MathJax.OutputJax["HTML-CSS"];
+          HTMLCSS.Font.testSize = ["10px","12px","15px","9px","8px"];
+          document.getElementById("MathJax_Font_Test").style.fontSize = "10px";
         });
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_HTML">
     </script>
     <link rel="icon" href="../static/Thomas_Head.png">
     <div class=" header">
