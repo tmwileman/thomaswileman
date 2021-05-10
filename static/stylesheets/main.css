@@ -25,7 +25,7 @@ h2 {
 }
 
 h2.notes {
-  background-color: white;
+  background-color: #f7f6f6;
   color: #000000;
   font-family: 'Red Hat Text', sans-serif;
   font-size: 225%;
@@ -53,7 +53,7 @@ h3 {
   font-family: 'Red Hat Text', sans-serif;
   font-size: 85%;
   font-weight: 500;
-  text-align: center;
+  text-align: left;
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -122,7 +122,7 @@ p.notes {
   font-family: 'Red Hat Text', sans-serif;
   font-size: 100%;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 60%;
@@ -204,11 +204,21 @@ float: left;
 margin-top: 10px;
 }
 
+
+.note-header {
+  background-color: #f7f6f6;
+  color: rgb(84, 84, 84);
+  padding: 10px 20px 10px 20px;
+  border: solid 1px #e6e6e6;
+  margin-bottom: 20px;
+  }
+
 .note-container {
   padding: 10px;
   width: 60%;
   margin: auto;
   }
+  
 
 .center {
   display: block;

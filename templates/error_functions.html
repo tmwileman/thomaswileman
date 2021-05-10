@@ -20,6 +20,7 @@
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     $$MSE=\frac{\sum_{i=1}^n(y_{i}-\hat{y}_{i})}{n}$$
 </math>
+
 <p class="notes">
     The <i>mean square error</i> is simply the average of squared differences between each prediction and actual observation. To calculate manually, subtract the actual values from the predicted values, square the resulting values, add all of the squared differences together, and finally divide by the number of observations. To calculate using Python, the mean_squared_error method in the sklearn.metrics library (see below).
 </p>
@@ -83,7 +84,7 @@
 >>> y_actual = np.array([3, -0.5, 2, 7])
 >>> y_pred = np.array([2.5, 0.0, 2, 8])
 >>> huber_loss(y_actual, y_pred)
-array([ 0.   ,  0.125, -0.5  ,  0.5  ])</code>
+array([0., 0.125, -0.5, 0.5])</code>
 </pre>
 <h3 class="notes">
     Optimization Functions
@@ -93,8 +94,8 @@ array([ 0.   ,  0.125, -0.5  ,  0.5  ])</code>
 </h4>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     \begin{cases}
-    $$W=W-\alpha\frac{\alpha}{\alpha*W}J(W) & \text{to update weights} \\
-    $$b=b-\alpha\frac{\alpha}{\alpha*b}J(b) & \text{to update bias}
+    W=W-\alpha\frac{\alpha}{\alpha*W}J(W) & \text{to update weights} \\
+    b=b-\alpha\frac{\alpha}{\alpha*b}J(b) & \text{to update bias}
     \end{cases}$$
 </math>
 <p class="notes">
