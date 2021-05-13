@@ -148,6 +148,19 @@ ul.no-bullets {
   margin: 0; /* Remove margins */
 }
 
+ol {
+  list-style-position: inside;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: white;
+  color: #000000;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: auto;
+}
+
 li.header {
   padding-left: 5%;
   padding-right: 5%;
@@ -276,6 +289,14 @@ table.logic-gate {
   text-align: center; 
   vertical-align: middle;
   width: 12%;
+  margin: auto;
+}
+
+table.normal, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  width: 10%;
   margin: auto;
 }
 

@@ -56,5 +56,10 @@ def softmax():
     return render_template("softmax.html")
 
 
+@app.route("/one_hot_encoding", methods=["GET", "POST"])
+def one_hot_encoding():
+    return render_template("one_hot_encoding.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

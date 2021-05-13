@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">
+    One Hot Encoding
+</h2>
+<p class="notes">
+    One hot encoding is the process of turning categorical features into binary vectors. This is important because machine learning algorithms cannot accept categorical features as inputs or return them as outputs. One hot encoding is completed in two steps.
+</p>
+<div class="note-container">
+    <ol>
+        <li>
+            Categorical features values are mapped to an integer. This step ensures consistency and allows us to convert model outputs from numerical features back into categorical features.
+        </li>
+        <li>
+            Each intger is converted into a binary vector.
+        </li>
+    </ol>
+</div>
+
+<p class="notes">
+    For example, consider an example where we would like to include the following data as input into a ML algorithm:
+</p>
+<table class="normal">
+    <tr>
+        <th>
+            pet
+        </th>
+    </tr>
+    <tr>
+        <td>
+            dog
+        </td>
+    </tr>
+    <tr>
+        <td>
+            cat
+        </td>
+    </tr>
+    <tr>
+        <td>
+            cat
+        </td>
+    </tr>
+    <tr>
+        <td>
+            dog
+        </td>
+    </tr>
+    <tr>
+        <td>
+            hamster
+        </td>
+    </tr>
+</table>
+<p class="notes">
+    Our first step is to map each of the distinct values in the data to an integer:
+</p>
+<table class="normal">
+    <tr>
+        <th>
+            pet
+        </th>
+        <th>
+            value
+        </th>
+    </tr>
+    <tr>
+        <td>
+            dog
+        </td>
+        <td>
+            0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            cat
+        </td>
+        <td>
+            1
+        </td>
+    </tr>
+    <tr>
+        <td>
+            hamster
+        </td>
+        <td>
+            2
+        </td>
+    </tr>
+</table>
+<p class="notes">
+    This allows us to represent the data as [0, 1, 1, 0, 2]
+</p>
+<p class="notes">
+    In the second and final step, we create binary vectors for each distinct categorical value:
+</p>
+<table class="normal">
+    <tr>
+        <th>
+            dog
+        </th>
+        <th>
+            cat
+        </th>
+        <th>
+            hamster
+        </th>
+    </tr>
+    <tr>
+        <td>
+            1
+        </td>
+        <td>
+            0
+        </td>
+        <td>
+            0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            0
+        </td>
+        <td>
+            1
+        </td>
+        <td>
+            0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            0
+        </td>
+        <td>
+            1
+        </td>
+        <td>
+            0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            1
+        </td>
+        <td>
+            0
+        </td>
+        <td>
+            0
+        </td>
+    </tr>
+    <tr>
+        <td>
+            0
+        </td>
+        <td>
+            0
+        </td>
+        <td>
+            1
+        </td>
+    </tr>
+</table>
+<p class="notes">
+    One hot encoding using python:
+</p>
+<pre>
+    <code class="python"># One hot encoding using pandas
+>>> import pandas as pd
+
+>>> pets = ['dog', 'cat', 'cat', 'dog', 'hamster']
+>>> one_hot_pets = pd.get_dummies(pets)
+>>> print(one_hot_pets)
+
+cat	dog	hamster
+0	1	0
+1	0	0
+1	0	0
+0	1	0
+0	0	1
+
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.get_dummies.html">pandas</a></code>
+</pre>
+<pre>
+    <code class="python"># One hot encoding using sklearn
+>>> from sklearn.preprocessing import LabelEncoder
+>>> from sklearn.preprocessing import OneHotEncoder
+
+>>> pets = ['dog', 'cat', 'cat', 'dog', 'hamster']
+>>> values = array(pets)
+
+# integer encode (step 1)
+>>> label_encoder = LabelEncoder()
+>>> integer_encoded = label_encoder.fit_transform(values)
+>>> print(integer_encoded)
+[1, 0, 0, 1, 2]
+
+# binary encode (step 2)
+>>> onehot_encoder = OneHotEncoder(sparse=False)
+>>> integer_encoded = integer_encoded.reshape(len(integer_encoded), 1)
+>>> onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
+>>> print(onehot_encoded)
+[[0. 1. 0.]
+ [1. 0. 0.]
+ [1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">scikit-learn</a></code>
+</pre>
+{% endblock %}
