@@ -15,6 +15,61 @@
     Error Functions
 </h3>
 <h4 class="notes">
+    Cross-Entropy
+</h4>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    $$Cross Entropy=-\sum_{i=1}^ny_{i}ln(p_{i}+(1-y_{i})ln(1-p_{i})$$
+</math>
+<p class="notes">
+    Cross-Entropy is used to measure how far off a predicted label is from the true label in categorical multi-class classification problems (e.g. trying to classify an image as either that of a dog, cat, or hamster). It is a common error function in deep learning models. This is because the output of a neural network is a vector indicating the probabilities that a training instance will be classified as any one of the possible outcomes. The Cross-entropy is simply the negative sum of the natural logarithms of all probabilities. Let's run through an example:
+</p>
+<p class="notes">
+    Suppose we submitted a picture of a dog to our neural network. The <a href="one_hot_encoding.html">one-hot</a> distribution of this instance is:
+</p>
+<pre>
+    <code class="python">Pr(dog) Pr(cat) Pr(hamster)
+1.0     0.0     0.0</code>
+</pre>
+<p class="notes">
+    Our neural network returns the following probability distribution:
+</p>
+<pre>
+    <code class="python">Pr(dog) Pr(cat) Pr(hamster)
+0.3     0.2     0.5</code>
+</pre>
+<p class="notes">
+    We then calculate the Cross-entropy to determine how close the predicted distribution is to the true distribution:
+</p>
+<pre>
+    <code class="python">H = - 1.0*ln(0.3) + 0.0*ln(0.2) + 0.0*ln(0.5)) = 1.2</code>
+</pre>
+<p class="notes">
+    It is important to remember that natural logarithm of values close to one will have small values (-ln(0.7) = 0.36) while the natural logarithm of small values are large (-ln(0.1) = 2.3). Thus, we can think of each negative natural logarithm of a prediction (e.g. -ln(0.3)) as the error for that prediction. Predictions close to one will have small errors while those close to zero will have large predictions.
+</p>
+<pre>
+    <code class="python"># Calculate the cross entropy between distributions
+>>> # define cross entropy function
+>>> def cross_entropy(p, q):
+	return -sum([p[i]*log(q[i]) for i in range(len(p))])
+
+>>> # define classification data
+>>> actual = [1, 0, 0]
+>>> prediction = [0.3, 0.2, 0.5]
+
+>>> # calculate cross entropy
+>>> results = list()
+>>> for i in range(len(p)):
+        expected = [1.0 - p[i], p[i]]
+        predicted = [1.0 - q[i], q[i]]
+        ce = cross_entropy(expected, predicted)
+        results.append(ce)
+
+>>> mean_ce = mean(results)
+>>> mean
+1.2
+<a href="https://machinelearningmastery.com/cross-entropy-for-machine-learning/">machine learning mastery</a></code>
+</pre>
+<h4 class="notes">
     Mean Squared Error (MSE)
 </h4>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -62,7 +117,7 @@
     $$L_{\delta_{\mathrm{}}}=
     \begin{cases}
     \frac{1}{2}(y-f(x))^2 & \text{for|y-f(x)|}\leq\delta_{\mathrm{}} \\
-    \delta_{\mathrm{}}|y-f(x)|-/frac{1}{2}\delta_{\mathrm{}}^2 & \text{otherwise}
+    \delta_{\mathrm{}}|y-f(x)|-\frac{1}{2}\delta_{\mathrm{}}^2 & \text{otherwise}
     \end{cases}$$
 </math>
 <p class="notes">
