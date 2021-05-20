@@ -61,5 +61,10 @@ def one_hot_encoding():
     return render_template("one_hot_encoding.html")
 
 
+@app.route("/backpropagation", methods=["GET", "POST"])
+def backpropagation():
+    return render_template("backpropagation.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
