@@ -241,6 +241,12 @@ margin-top: 10px;
   width: 60%;
   margin: auto;
   }
+
+.equation-container {
+  padding: 10px;
+  width: 60%;
+  margin: auto;
+  }
   
 
 .center {
@@ -498,6 +504,11 @@ width: 20%;
     width: 95%;
     margin: auto;
     font-size: 80%;
+    }
+
+  .equation-container {
+    width: 95%;
+    margin: auto;
     }
 
   table.logic-gate {

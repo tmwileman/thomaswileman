@@ -34,71 +34,72 @@
     We be begin by initializing our model with random weights (you can also manually input initial weights if you want) and then calculating the model's outputs. See a graphical representation of this step and each calculation below.
 </p>
 <img src="../static/images/backpropagation/bp_initial.svg" class="center-image">
-<div class="note-container">
-    <div class="note-container" style="float:left; width: 50%;">
-        <div class="note-container">
+<div class="equation-container">
+    <div class="equation-container" style="float:left; width: 50%;">
+        <div class="equation-container">
             $net_{h_1} = w_{1}*i_{1}+w_{2}*i_{2}+b_{1}*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{h_1} = 0.10*0.10+0.25*0..10+0.45*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{h_1} = 0.49$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $out_{h_1} = \frac{1}{1+e^{-net_h1}} = \frac{1}{1+e^{-0.46}} = 0.62$
         </div>
         <hr>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{h_2} = w_{3}*i_{1}+w_{4}*i_{2}+b_{1}*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{h_2} = 0.25*0.20+0.40*0.20+0.45*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{h_2} = 0..58$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $out_{h_2} = \frac{1}{1+e^{-net_h2}} = \frac{1}{1+e^{-0.48}} = 0.64$
         </div>
     </div>
-    <div class="note-container" style="float:right; width: 50%;">
-        <div class="note-container">
+    <div class="equation-container" style="float:right; width: 50%;">
+        <div class="equation-container">
             $net_{o_1} = w_{5}*h_{1}+w_{6}*h_{2}+b_{1}*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{o_1} = 0.30*0.62+0.35*0.62+0.35*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{o_1} = 0.75$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $out_{o_1} = \frac{1}{1+e^{-net_o1}} = \frac{1}{1+e^{-0.68}} = 0.68$
         </div>
         <hr>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{o_2} = w_{7}*o_{1}+w_{8}*h_{2}+b_{2}*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net{o_2} = 0.50*0.64+0.55*0.64+0.35*1$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $net_{o_2} = 1.02$
         </div>
-        <div class="note-container">
+        <div class="equation-container">
             $out_{o_2} = \frac{1}{1+e^{-net_o1}} = \frac{1}{1+e^{-1.02}} = 0.74$
         </div>
     </div>
 </div>
+<div></div>
 <p class="notes">
     We can see that the current ouputs of our model are not close to our desired outputs.
 </p>
 <h3 class="notes">
     Step 2: Calculate Model Error
 </h3>
-<div class="note-container">
-    <div class="note-container">
-        <div class="note-container">
+<div class="equation-container">
+    <div class="equation-container">
+        <div class="equation-container">
             $E_{total} = \sum\frac{1}{2}(target-output)^{2}$
         </div>
     </div>
@@ -106,7 +107,7 @@
 <p class="notes">
     Next, we calculate the model's total error. This is done using the squared error function (see the formula above). In the following steps, we'll calculate the individual errors for each output and the sum them together to get the model's total error.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $E_{01}=\sum\frac{1}{2}(target-output)^{2}=\sum\frac{1}{2}(0.01-0.68)^{2}=.22$
     </div>
@@ -139,7 +140,7 @@
 <p class="notes">
     Now we need to find the answer for each partial derivative in our chain to generate to get our answer. We'll start by calculating $\frac{\partialE_{total}}{\partialout_{o1}}$.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $E_{total}=\frac{1}{2}(target_{o1}-output_{o1})^{2}+\frac{1}{2}(target_{o2}-output_{o2})^{2}$
     </div>
@@ -153,7 +154,7 @@
 <p class="notes">
     Next, we'll calculate the derivative of our logistic activation function with respect to the net input, $\frac{\partialout_{o1}}{\partialnet_{o1}}$.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $out_{o_1} = \frac{1}{1+e^{-net_o1}}$
     </div>
@@ -167,7 +168,7 @@
 <p class="notes">
     Then we calculate the derivative of the net input with respect to $w_{5}$, $\frac{\partialnet_{o1}}{\partialw_{5}}$.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $net_{o_1} = w_{5}*out_{h_1}+w_{6}*out_{h_2}+b_{2}*1$
     </div>
@@ -181,7 +182,7 @@
 <p class="notes">
     Now we can combine the results of the three partial derivatives we've calculated to get the answer for $\frac{\partialE_{total}}{\partialw_{5}}$.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $\frac{\partialE_{total}}{\partialw_{5}}=\frac{\partialE_{total}}{\partialout_{o1}}x\frac{\partialout_{o1}}{\partialnet_{o1}}x\frac{\partialnet_{o1}}{\partialw_{5}}$
     </div>
@@ -192,7 +193,7 @@
 <p class="notes">
     Finally, we multiply the value we have calculated by a learning rate (we will use 0.2) and subtract that value from the current weight.
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>
         $w_{5}^{+}=w_{5}-\eta*\frac{\partialnet_{o1}}{\partialw_{5}}$
     </div>
@@ -203,7 +204,7 @@
 <p class="notes">
     Applying this same methodology to the remaining weights we end up with the following:
 </p>
-<div class="note-container">
+<div class="equation-container">
     <div>$w_{6}^{+}=0.34$</div>
     <div>$w_{7}^{+}=0.51$</div>
     <div>$w_{8}^{+}=0.56$</div>
