@@ -66,5 +66,10 @@ def backpropagation():
     return render_template("backpropagation.html")
 
 
+@app.route("/q_learning", methods=["GET", "POST"])
+def q_learning():
+    return render_template("q_learning.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

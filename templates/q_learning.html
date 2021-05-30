@@ -1,0 +1,487 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Q Learning</h2>
+<p class="notes">
+    Q-Learning is a reinforcement learning technique that finds the optimal path through a maze to the desired end state. As an example, say we're interested in training a mouse to run through a maze as quickly as possible. We could put cheese at key parts of the maze to "reward" the mouse for making the preferred decision and brussel sprouts at the other parts of the maze to "punish" the mouse for making the wrong decision. If we ran this test over and over we’d probably see the mouse's time to complete the maze decrease as it "learned" the optimal route. Q-Learning works in much the same way. However, instead of cheese and brussel sprouts, Q-Learning models use numerical rewards and action values (known as Q-values) to find the optimal behavior in a defined state space.
+</p>
+<img src="../static/images/q_learning/maze_initial.png" class="center-image" style="width: 40%">
+<p class="notes">
+    The first step is to identify all possible transitions within our state space. In the case of the maze, our state space are all of the rooms in the maze and the transitions are all of the doors that connect various rooms. This gives us the table below.
+</p>
+<table style="width: 10%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Start
+                </p>
+            </th>
+            <th>
+                <p>
+                    End
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    5
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Once we know the state space and possible transitions we can assign reward values. Reward values indicate how desirable it is to transition from one state to another. Transitions to the desired end state (also known as the goal state) are given large, positive values. Transitions that don't progress toward the goal are given small, negative values that prevent the model from running in circles. Reward values are determined ahead of time and don't change as we train the model.
+</p>
+<table style="width: 15%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Start
+                </p>
+            </th>
+            <th>
+                <p>
+                    End
+                </p>
+            </th>
+
+            <th>
+                <p>
+                    Reward
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    5
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    10
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Next, we’ll calculate our Q-Values. Q-values indicate the value of going from one state to another. At the start, each transition is assigned a Q-value of 0. Each time we progress from one state to another, we use the Bellman Equation to calculate a new Q-value for that transition. We optimize Q-values by randomly walking through our maze many times. Each walk (known as an epoch) enables us to consider how each possible transition impacts our ability to reach the goal state; refining our Q-values.
+</p>
+<table style="width: 15%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Start
+                </p>
+            </th>
+            <th>
+                <p>
+                    End
+                </p>
+            </th>
+            <th>
+                <p>
+                    Reward
+                </p>
+            </th>
+            <th>
+                <p>
+                    Q
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    5
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    10
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    The Bellman equation is used to determine the Q-value of a transition from one state to another. It does this by separately considering the transition in question and each possible follow on transition. Two parameters, learning rate and gamma, are used to tune the equation's output. The thing to really know about the equation is that it not only considers the first transition, but also all possible follow on transitions. The learning rate increases or decreases the influence of the initial transition and possible future rewards. Gamma ignores the influence of the initial transition but discounts the impact of future rewards. It does this by including the highest Q-value of all possible transitions that follow the initial transition (commonly referred to as next-next states). This Max Q-value provides additional weight to transitions if the goal state is one of the possible next-next states.
+</p>
+<div class="equation-container">
+    <div>
+        $Q_{S, NS}=((1-Learn Rate)*Q_{S, NS}+(Learn Rate*(R_{S, NS}+(\gamma*Max Q)))$
+    </div>
+</div>
+<p class="notes">
+    Each time a Q-value is calculated, we adjust the transition's original Q-value to reflect the possibility of reaching the goal state with this transition or the next. The more times we randomly walk through the maze, the more times we refine each transition's Q-value. Eventually, the change in Q-values between epochs will be negligible, indicating we've reached a state of convergence and have learned all we can about the most optimal path to the goal state.
+</p>
+<table style="width: 15%; margin: 0 auto;">
+    <tbody>
+        <tr>
+            <th>
+                <p>
+                    Start
+                </p>
+            </th>
+            <th>
+                <p>
+                    End
+                </p>
+            </th>
+            <th>
+                <p>
+                    Reward
+                </p>
+            </th>
+            <th>
+                <p>
+                    Q
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    4
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    .25
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    .5
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    3
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    2
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    -0.1
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="notes">
+                    1
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    5
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    10
+                </p>
+            </td>
+            <td>
+                <p class="notes">
+                    10
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p class="notes">
+    Q-learning's most obvious benefit is the ability to identify the optimal path toward a goal and recommend next steps. This can be used on e-commerce sites to direct customers to pages that are more likely to result in a sale or by marketing firms to prioritize customer outreach strategies. Also, since we only keep track of transitions previously observed, our state space is relatively small when compared to similar ML techniques like Markov Chain. This smaller state space means our model can run faster and we don't run into many of the issues that can arrise with sparse matrices.
+</p>
+{% endblock %}
