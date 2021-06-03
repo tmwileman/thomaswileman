@@ -290,6 +290,19 @@ margin-top: 10px;
   width: 60%;
 }
 
+.two-column-table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+.code-table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 10%;
+}
+
 table td {
   border-left: 1px solid #000;
   border-right: 1px solid #000;

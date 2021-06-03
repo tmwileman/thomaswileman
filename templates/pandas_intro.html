@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Pandas Introduction</h2>
+<img src="../static/images/pandas_intro/pandas_logo.png" class="center-image">
+<p class="notes">
+    Pandas is a python library used to clean, transform, and learn about data. Pandas is an ideal tool for data manipulation and analysis because it organizes data into structures that are easily reshaped, merged, joined, filtered, sliced, pivoted, and much more. The data structures used by Pandas are the following:
+</p>
+<div class="two-column-table">
+    <table>
+        <tr>
+            <th>
+                Data Structure
+            </th>
+            <th>
+                Dimensions
+            </th>
+            <th>
+                Key Features
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Series
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                Labeled, homogeneous array, size immutable, values mutable.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Data Frame
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                Labeled, size-mutable tabular structure with potentially heterogeneously typed columns.
+            </td>
+        </tr>
+    </table>
+</div>
+<p class="notes">
+    These data structures are great for a few reasons. First, all of the data manipulation methods are simple to use. We can obtain descriptive statistics using .mean(), .median(), etc. We can concat Series or DataFrames using .concat() or merge them using .merge(). We can apply custom function to our data using .apply() or replace NAN values using .replace(). These data manipulation tools make complicated transformation easy to implement.
+</p>
+<p class="notes">
+    Second, data in a Pandas Series or DataFrame is both indexed and labeled; enabling us to easily identify and subset data of interest. For instance, we can subset specific columns in a Pandas DataFrame by referening the column name or examine specific rows using the .loc() method. Allowing us to intuitively reference and work with data.
+</p>
+<p class="notes">
+    Finally, Pandas is built on top of the Numpy and Matplotlib libraries. This means that we can easily apply the linear algebra functionality of Numpy to Pandas Series and DataFrames and then chart our results using Matplot lib.
+</p>
+<p class="notes">
+    Now let's examine some commonly used Pandas operations.
+</p>
+<div>
+    <h3 class="notes">
+        Importing and Installing Pandas
+    </h3>
+    <pre>
+    <code class="python"># install pandas
+>>> pip install pandas
+
+# import pandas
+>>> import pandas as pd
+
+# check pandas version
+>>> print(pd.__version__)
+0.24.2
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Creating a Series and a DataFrame
+    </h3>
+    <pre>
+    <code class="python"># create a series
+>>> mylist = ['Norris', 'McLaren', 4]
+>>> labels = ['driver', 'team', 'place']
+>>> series = pd.Series(mylist, labels)
+>>> print(series)
+
+driver     Norris
+team      McLaren
+place           4
+dtype: object
+
+
+# create a dataframe
+>>> df = pd.DataFrame({'driver':pd.Series(['Hamilton', 'Verstappen', 'Bottas'], dtype='str'), 
+                       'team':pd.Series(['Mercedes AMG', 'Red Bull', 'Mercedes AMG'], dtype='str'), 
+                       'place':pd.Series(['1', '2', '3'], dtype='int')})
+
+        driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1
+1	Verstappen	Red Bull	2
+2	Bottas	        Mercedes AMG	3
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Select a Column From a DataFrame
+    </h3>
+    <pre>
+    <code class="python"># select a column of data from a DataFrame
+>>> df['driver']
+
+driver
+----------
+Hamilton
+Verstappen
+Bottas
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Filter DataFrame by Column Value
+    </h3>
+    <pre>
+    <code class="python"># select a row(s) of data from a DataFrame based on a column value
+>>> df[df['driver'] == 'Hamilton'
+
+        driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Append Row to a DataFrame
+    </h3>
+    <pre>
+    <code class="python"># append a series to a dataframe
+>>> df.append(series, ignore_index=True)
+
+        driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1
+1	Verstappen	Red Bull	2
+2	Bottas	        Mercedes AMG	3
+3	Norris	        McLaren	        4
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Select DataFrame Rows by Index
+    </h3>
+    <pre>
+    <code class="python"># select dataframe rows by index
+>>> df.iloc[1:3]
+
+        driver	        team	        place
+---------------------------------------------
+1	Verstappen	Red Bull	2
+2	Bottas	        Mercedes AMG	3
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Print the First or Last n Rows of a DataFrame
+    </h3>
+    <pre>
+    <code class="python"># print the first 2 rows of a dataframe
+>>> df.head(2)
+        driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1
+1	Verstappen	Red Bull	2
+
+# print the last 2 rows of a dataframe
+>>> df.tail(2)
+        driver	        team	        place
+---------------------------------------------
+2	Bottas	        Mercedes AMG	3
+3	Norris	        McLaren	        4
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Print the Shape a DataFrame
+    </h3>
+    <pre>
+    <code class="python"># print the shape of a dataframe
+>>> df.shape()
+(4, 3) # four rows and three columns
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Identify Missing Data
+    </h3>
+    <pre>
+    <code class="python"># add a row with missing data
+>>> import numpy as np
+>>> df2 = pd.DataFrame([["Ricciardo",None,5],
+                       ["Leclerc","Ferrari", np.nan]],
+                       columns=["driver", "team", "place"])
+>>> df3 = df.append(df2)
+driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1.0
+1	Verstappen	Red Bull	2.0
+2	Bottas	        Mercedes AMG	3.0
+3	Norris	        McLaren	        4.0
+0	Ricciardo	None	        5.0
+1	Leclerc	        Ferrari	        NaN
+
+>>> identify missing data
+>>> df3['place'].isnull
+0    False
+1    False
+2    False
+3    False
+0    False
+1    True
+Name: place, dtype: bool
+
+>>> df3['team'].isnull()
+0    False
+1    False
+2    False
+3    False
+0     True
+1    False
+Name: team, dtype: bool
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Simple Statistics
+    </h3>
+    <pre>
+    <code class="python"># find the mean of a column
+>>> df3['place'].mean()
+3.0
+
+# find the sum of a column
+>>> df3['place'].sum()
+15.0
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Replace Missing Values
+    </h3>
+    <pre>
+    <code class="python"># find the mean of a column
+>>> df3['team'] = df3['team'].fillna('McLaren')
+>>> df3['place'] = df3['place'].fillna(6)
+driver	        team	        place
+---------------------------------------------
+0	Hamilton	Mercedes AMG	1.0
+1	Verstappen	Red Bull	2.0
+2	Bottas	        Mercedes AMG	3.0
+3	Norris	        McLaren	        4.0
+0	Ricciardo	McLaren	        5.0
+1	Leclerc	        Ferrari	        6.0
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Group Data by Column and Perform Operation
+    </h3>
+    <pre>
+    <code class="python"># find the mean of groups in a column
+>>> df3.groupby('team')['place'].mean()
+team
+Ferrari         6.0
+McLaren         4.5
+Mercedes AMG    2.0
+Red Bull        2.0
+Name: place, dtype: float64
+</code>
+</pre>
+</div>
+<p class="notes">
+    This is just the start of what can be done using Pandas. I will update this document to include more commonly operations. Let me know if there are any you would like to see.
+</p>
+{% endblock %}
