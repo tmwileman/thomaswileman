@@ -71,5 +71,19 @@ def q_learning():
     return render_template("q_learning.html")
 
 
+@app.route("/pandas_intro", methods=["GET", "POST"])
+def pandas_intro():
+    return render_template("pandas_intro.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+pd.DataFrame(
+    [
+        ["Hamilton", "Mercedes AMG", 1],
+        ["Verstappen", "Red Bull", 2]["Bottas", "Mercedes AMG", 3],
+    ],
+    columns=["driver", "team", "place"],
+)
+
