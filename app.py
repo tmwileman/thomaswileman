@@ -78,12 +78,3 @@ def pandas_intro():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-pd.DataFrame(
-    [
-        ["Hamilton", "Mercedes AMG", 1],
-        ["Verstappen", "Red Bull", 2]["Bottas", "Mercedes AMG", 3],
-    ],
-    columns=["driver", "team", "place"],
-)
-
