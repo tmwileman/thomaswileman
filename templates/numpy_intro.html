@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">NumPy Introduction</h2>
+<img src="../static/images/numpy_intro/numpy_intro.png" class="center-image">
+<p class="notes">
+    NumPy is a python library used to perform operations on large, multi-dimensional arrays and matrices. Importantly, NumPy performs these operations on blocks of data called <i>ndarrays</i> (n-dimensional arrays). <i>ndarrays</i> can be efficiently stored (cached) in memory by the CPU because the data has a fixed size, is all the same type, and located in the same python object. Other data structures like Python lists point to individual objects in random memory locations and do not have fixed sizes or data types. This means <i>ndarrays</i> can be used to perform complex calculations much faster than we would with lists.
+</p>
+<p class="notes">
+    Let's compare how long it takes to compute a vector dot product between NumPy and Python lists.
+</p>
+<div>
+    <pre>
+    <code class="python"># install numpy
+>>> pip install numpy
+
+# import numpy
+>>> import numpy as np
+
+# first define a function that will compute the dot product of two lists
+>>> def dot_product_using_lists(a, b):
+        z = 0
+        for i in range(len(a)):
+            z += a[i] * b[i]
+        return z
+
+# next create two large lists for the list approach
+>>> a = list(range(1000))
+>>> b = list(range(1000))
+
+# and then create the same lists but as ndarrays
+>>> c = np.array(1000)
+>>> d = np.array(1000)
+
+# calculate how long the list approach takes
+>>> %timeit dot_product_using_lists(a, b)
+106 µs ± 1.24 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+
+# now calculate using numpy
+>>> %timeit c.dot(d)
+783 ns ± 3.9 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</code>
+</pre>
+</div>
+<p class="notes">
+    In this case, NumPy was 135 times faster than the Python list method. Now let's examine some commonly used Numpy operations.
+</p>
+<div>
+    <h3 class="notes">
+        Create a Two-Dimensional Array
+    </h3>
+    <pre>
+    <code class="python"># create a list of lists
+>>> lst_of_lsts = [[1, 2, 3],
+                   [4, 5, 6]]
+
+# convert list of lists to an ndarray
+>>> ary = np.array(lst_of_lsts)
+>>> ary
+array([[1, 2, 3],
+       [4, 5, 6]])
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Check Array Data Type
+    </h3>
+    <pre>
+    <code class="python"># check array data type
+>>> ary.dtype
+dtype('int64')
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Change Array's Data Type
+    </h3>
+    <pre>
+    <code class="python"># change an array if ints to an array of floats
+>>> ary2 = ary.astype(np.float32)
+>>> ary2
+array([[1., 2., 3.],
+       [4., 5., 6.]], dtype=float32)
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Create Various 2x2 Arrays
+    </h3>
+    <pre>
+    <code class="python"># create a 2x2 array of ones
+>>> ones = np.ones((2, 2), dtype = np.int)
+>>> ones
+array([[1, 1],
+       [1, 1]])
+
+# create a 2x2 array of zeros
+>>> zeros = np.zeros((2, 2), dtype = np.int)
+>>> zeros
+array([[0, 0],
+       [0, 0]])
+
+# create a 2x2 array of arbitrary values
+>>> sevens = np.zeros((2, 2) + 7, dtype = np.int)
+>>> sevens
+array([[7, 7],
+       [7, 7]])
+
+# create a 2x2 identity matrix 
+>>> id = np.eye(2)
+>>> id
+array([[1., 0.],
+       [0., 1.]])
+
+# create a custom 2x2 diagonal matrix 
+>>> cd = np.diag((2, 4))
+>>> cd
+array([[2, 0],
+       [0, 4]])
+
+# create an arranged 2x2 matrix that steps through a range
+>>> arr = np.arange(1., 4., .5)
+>>> arr
+array([1. , 1.5, 2. , 2.5, 3. , 3.5])
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Index and Slice Arrays
+    </h3>
+    <pre>
+    <code class="python"># extract the second element from a 1D array
+>>> arr[1]
+1.5
+
+# extract the second and thrid element from a 1D array
+>>> arr[1:2]
+array([1.5, 2. ])
+
+# extract a single value from a 2D array
+>>> cd[1, 1] # lower right element in a 2x2 matrix
+4
+
+# extract a column from a 2D array
+>>> cd[:, 1] # second column
+array([0, 4])
+
+# extract a row from a 2D array
+>>> cd[0, :] # first row
+array([2, 0])
+</code>
+</pre>
+</div>
+<div>
+    <h3 class="notes">
+        Arithmetic Operations
+    </h3>
+    <pre>
+    <code class="python"># add 1 to each element in an array
+>>> np.add(ary, 1)
+array([[2, 3, 4],
+       [5, 6, 7]])
+
+# square each element in an array
+>>> np.power(ary, 2)
+array([[ 1,  4,  9],
+       [16, 25, 36]])
+
+# square root of each element in an array
+>>> np.sqrt(ary)
+array([[1., 1.41421356, 1.73205081],
+       [2., 2.23606798, 2.44948974]])
+
+# sum an array by row
+>>> ary.sum(axis=0) # the first axis of a matrix (axis=0) are the rows
+array([5, 7, 9])
+
+# sum an array by column
+>>> ary.sum(axis=1) # the second axis of a matrix (axis=1) are the columns
+array([ 6, 15])
+</code>
+</pre>
+</div>
+<p class="notes">
+    This is just the start of what can be done using Numpy. I will update this document to include more commonly operations. Let me know if there are any you would like to see.
+</p>
+{% endblock %}

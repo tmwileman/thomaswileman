@@ -76,5 +76,10 @@ def pandas_intro():
     return render_template("pandas_intro.html")
 
 
+@app.route("/numpy_intro", methods=["GET", "POST"])
+def numpy_intro():
+    return render_template("numpy_intro.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
