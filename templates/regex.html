@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Regular Expressions (REGEX)</h2>
+<img src="../static/images/regex/regex_logo.jpg" class="center-image">
+<p class="notes">
+    Regular expressions enable you to search a string for a text pattern. A Regular Expression, or RegEX is simply a combination of characters you are searching for. You can use the functions and methods within the <a href="https://docs.python.org/3/library/re.html">re</a> library to determine if your regex is located in a string, where it is located in the string, count the number of times it is located in the string, split the string at a certain point, and much more.
+</p>
+<h3 class="notes">
+    Basic Patterns
+</h3>
+<p class="notes">
+    The simplest regular expressions are those that match themselves. This includes cases where you're searching for a specific word or number. For example, if I wanted to find all instances of "@gmail.com" in a sentence my regex would simply be "@gmail.com". My return would be a list containing "@gmail.com" the number of times it was in that text.
+</p>
+<div>
+    <pre>
+        <code class="python"># import return
+>>> import re
+
+# create a sencence to search through
+>>> txt = "Thomas, please email johndoe@gmail.com and janedoe@gmail.com."
+
+# use re.findall to find all instances of @gmail.com in the sentence
+>>> re.findall("@gmail.com", txt)
+['@gmail.com', '@gmail.com']</code>
+    </pre>
+</div>
+<p class="notes">
+    However, not all characters match themselves. Metacharacters like ^ and {} do not match themselves. Instead, they have a unique meaning that expand the patterns we can search for beyond just simple character matching. For example, if I want to extract entire email addresses in a text (and not just gmail addresses), I can use metacharacters to change my regex from "@gmail.com" to "([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)"
+</p>
+<div>
+    <pre>
+        <code class="python"># import return
+>>> import re
+
+# create a sencence to search through
+>>> txt = "Thomas, please email johndoe@gmail.com and janedoe@protonmail.com."
+
+# use re.findall to find all instances of @gmail.com in the sentence
+>>> re.findall("([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", txt)
+
+import re
+
+txt = "Thomas, please email johndoe@gmail.com and janedoe@protonmail.com."
+re.findall("([a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)", txt)
+['johndoe@gmail.com', 'janedoe@protonmail.com']</code>
+    </pre>
+</div>
+<div class="float-container">
+    <ul>
+        <li>
+            <b>A-Z, a-z, 0-9, !, @, #, %, &:</b> These character match themselves exactly.
+        </li>
+        <li>
+            <b>[]:</b> Specify a specific set of characters to match at a position.
+        </li>
+        <li>
+            <b>. (a period):</b> Matches any single character except a newline (\n).
+        </li>
+        <li>
+            <b>\w:</b> Matches any alphanumeric character. Equivalent to [a-zA-Z0-9_].
+        </li>
+        <li>
+            <b>\W:</b> Matches any non-alphanumeric character. Equivalent to [^a-zA-Z0-9_]. <i>^ is used in a character class to signify characters that you don't want to match.</i>
+        </li>
+        <li>
+            <b>\d:</b> Matches any decimal digit. Equivalent to [0-9].
+        </li>
+        <li>
+            <b>\D:</b> Matches any non-digit character. Equivalent to [^0-9].
+        </li>
+        <li>
+            <b>\s:</b> Matches any whitespace character. Equivalent to [ \t\n\r\f\v].
+        </li>
+        <li>
+            <b>\S:</b> Matches any non-whitespace character. Equivalent to [^ \t\n\r\f\v].
+        </li>
+        <li>
+            <b>\t, \n, \r:</b> tab, newline, return.
+        </li>
+        <li>
+            <b>^:</b> Match the start of a string.
+        </li>
+        <li>
+            <b>\:</b> Cancel the .
+        </li>
+        <li>
+            <b>*:</b> Match the preceding regex zero or more times.
+        </li>
+        <li>
+            <b>+:</b> Match the preceding regex one or more times (similar to * but the regex must occur at least once).
+        </li>
+        <li>
+            <b>?:</b> Match the preceding regex zero or one times.
+        </li>
+        <li>
+            <b>{m}:</b> Matches exactly m repetitions of the preceding regex.
+        </li>
+        <li>
+            <b>{m, n}:</b> Match any number of repetitions of the preceding regex from m to n, inclusive.
+        </li>
+    </ul>
+</div>
+<h3 class="notes">
+    Grouping
+</h3>
+<p class="notes">
+    Grouping, accomplished using parantheses, enables you to break up a regex into subexpressions. This enables you to apply additional metacharacters like '+' to a group of characters or extract a portion of a pattern that matches the group. For example, "bar+" applies the metacharacter to the "r" only while "(bar)+" applies the metacharacter "+" to the whole string.
+</p>
+<div>
+    <pre>
+        <code class="python">>>> re.search('bar+', 'foo barbar baz')
+re.Match object; span=(4, 7), match='bar'
+            
+>>> re.search('(bar)+', 'foo barbar baz')
+re.Match object; span=(4, 10), match='barbar'</code>
+    </pre>
+</div>
+{% endblock %}s
