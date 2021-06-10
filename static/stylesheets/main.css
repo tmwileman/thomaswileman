@@ -554,6 +554,12 @@ width: 20%;
     width: 95%;
     margin: auto;
     }
+
+  .note-container {
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    }
     
   table.medium {
     width: 50%; 
