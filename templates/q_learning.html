@@ -9,7 +9,7 @@
 <p class="notes">
     The first step is to identify all possible transitions within our state space. In the case of the maze, our state space are all of the rooms in the maze and the transitions are all of the doors that connect various rooms. This gives us the table below.
 </p>
-<table style="width: 10%; margin: 0 auto;">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -25,60 +25,60 @@
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     2
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     5
                 </p>
             </td>
@@ -88,7 +88,7 @@
 <p class="notes">
     Once we know the state space and possible transitions we can assign reward values. Reward values indicate how desirable it is to transition from one state to another. Transitions to the desired end state (also known as the goal state) are given large, positive values. Transitions that don't progress toward the goal are given small, negative values that prevent the model from running in circles. Reward values are determined ahead of time and don't change as we train the model.
 </p>
-<table style="width: 15%; margin: 0 auto;">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -110,85 +110,85 @@
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     2
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     5
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     10
                 </p>
             </td>
@@ -198,7 +198,7 @@
 <p class="notes">
     Next, we’ll calculate our Q-Values. Q-values indicate the value of going from one state to another. At the start, each transition is assigned a Q-value of 0. Each time we progress from one state to another, we use the Bellman Equation to calculate a new Q-value for that transition. We optimize Q-values by randomly walking through our maze many times. Each walk (known as an epoch) enables us to consider how each possible transition impacts our ability to reach the goal state; refining our Q-values.
 </p>
-<table style="width: 15%; margin: 0 auto;">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -224,110 +224,110 @@
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     2
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     5
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     10
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
@@ -345,7 +345,7 @@
 <p class="notes">
     Each time a Q-value is calculated, we adjust the transition's original Q-value to reflect the possibility of reaching the goal state with this transition or the next. The more times we randomly walk through the maze, the more times we refine each transition's Q-value. Eventually, the change in Q-values between epochs will be negligible, indicating we've reached a state of convergence and have learned all we can about the most optimal path to the goal state.
 </p>
-<table style="width: 15%; margin: 0 auto;">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -371,110 +371,110 @@
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     4
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     .25
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     .5
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     3
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     2
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     -0.1
                 </p>
             </td>
         </tr>
         <tr>
             <td>
-                <p class="notes">
+                <p class="table">
                     1
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     5
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     10
                 </p>
             </td>
             <td>
-                <p class="notes">
+                <p class="table">
                     10
                 </p>
             </td>
