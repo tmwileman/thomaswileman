@@ -80,9 +80,16 @@ def pandas_intro():
 def numpy_intro():
     return render_template("numpy_intro.html")
 
+
 @app.route("/regex", methods=["GET", "POST"])
 def regex():
     return render_template("regex.html")
+
+
+@app.route("/cnn", methods=["GET", "POST"])
+def cnn():
+    return render_template("cnn.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

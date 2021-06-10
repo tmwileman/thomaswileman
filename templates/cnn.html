@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="notes">Convolutional Neural Networks (CNNs)</h2>
+<img src="../static/images/cnn/cnn_logo.svg" class="center-image">
+<p class="notes">
+    Convolutional neural networks (CNNs) systematically examine small portions of an input through various filters to learn the input's features. This process is completed using combinations of convolutional kernels and pooling layers that keep track of spatial information and find hidden features. These properties make CNNs great for tasks like image recognition, <a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio">speech generation </a>, and more. Let's discuss how convolutional kernels and pooling layers modify input data to accomplish these tasks.
+</p>
+<h3 class="notes">
+    Convolutional Kernels
+</h3>
+<img src="../static/images/cnn/convolutional_kernel.svg" class="center-image">
+<p class="notes">
+    A convolutional kernel is a matrix of integers used to modify a subset of the input data. A convolutional layer can include any number of convolutional kernel. While each kernel will modify the input data differently based on the values in the kernel's matrix, all kernels operate the same way. First, the product-sum for each subset of the input data is calculated. Second, the resulting values are included in a subsequent matrix. In the example below, we can see that the 2x2 convolution kernel is applied to each quadrant of the input data. The product-sum for each subset is then included in a follow on matrix that represents the output of this convolutional kernel applied to the input data.
+</p>
+<img src="../static/images/cnn/con_ker_1.svg" class="center-image">
+<img src="../static/images/cnn/con_ker_2.svg" class="center-image">
+<p class="notes">
+    We have a lot of control over how the kernel is applied to the input data. First, we can control the size of the kernel. Larger kernels (4x4 vs 2x2 etc.) include more peripheral data while smaller kernels focus feature recognition on the pixel in question.
+</p>
+<p class="notes">
+    Second, we can control how many pixels the kernel strides over at a time. Larger strides reduce the dimensionality of the resulting matrix while smaller strides maintain the dimensionality of the input data. Typically strides of 2 are used (the kernel starts at position (1, 1) and then moves to (1, 3), etc.).
+</p>
+<p class="notes">
+    However, depending on the combination of image size and stride length we may need to pad the edge of the image to facilitate our calculations. Padding are columns or rows of zeros added to the right or bottom of an image. Padding ensures that the kernel has enough data at the edges of an image to perform its task.
+</p>
+<p class="notes">
+    Now consider an example where we apply this methodology to an image classification problem. Image data has three channels, red, green, and blue. Each channel indicates the saturation of the corresponding color at that position. This means that a single pixel is represented by three integers (ex. (192, 25, 64)) and an image can be represented by three matricies; each matrix indicating the saturation of each channel in each pixel. When we run image data through a convolutional layer we will end up with the following:
+</p>
+<img src="../static/images/cnn/con_ker_4.svg" class="center-image">
+<p class="notes">
+    We can feed these results into follow on convolutional layers or use them as inputs to a fully connected layer (required step prior to making a prediction). However, input to CNNs in often high dimensional and applying convolutional layers only increases the dimensionality. This can significantly increase the computational time for our network. Thankfully, we can use pooling layers to reduce the dimensions of our data and speed up our computation time.
+</p>
+<h3 class="notes">
+    Pooling Layers
+</h3>
+<img src="../static/images/cnn/pool_layer_1.svg" class="center-image">
+<p class="notes">
+    The purpose of a pooling layer is to reduce the dimensionality (downsample) of the convolutional layer. This summarises the features present in each region of each feature map, enabling the model to pick out prominent features no matter their location in the image.
+</p>
+<p class="notes">
+    This is completed by moving a convolution (filter) across the convolutional layer and either extracting the maximum value present in the convolution (max pooling) or taking the average of the values in the convolution (average pooling). The resulting values are included in a follow-on matrix. Below is an example of max pooling using a 2x1 convolution.
+</p>
+<img src="../static/images/cnn/pool_layer_2.svg" class="center-image">
+<h3 class="notes">
+    ReLU and Normalization
+</h3>
+<p class="notes">
+    <b>Rectified Linear Unit (ReLU): </b>An activation function that returns 0 if the input is less than 0 and the value if its greater than 0. ReLU activation functions are commonly used following a convolution layer to highlight the differences between different segments of the data (increase the non-linearity of the input data).
+</p>
+<p class="notes">
+    <b>Normalization: </b>Transform the input data so all values lie between -1 and 1. Normalization is done is used to reduce overfitting and speed up training.
+</p>
+<h3 class="notes">
+    VGG-16
+</h3>
+<p class="notes">
+    Finally, I thought it would be good to see the architecture of a CNN in production. <a href="https://arxiv.org/abs/1409.1556">VGG-16</a> is a CNN architecture used to classify images that won 1st place in the challenge to detect objects within an image coming from 200 classes and 2nd place in the challenge to classify images as one of 1000 categories at the 2014 ImageNet Large Scale Visual Recognition Challenge (ILSVRC). VGG-16 contains 13 convolution layers, five pooling layers, and three densly connected layers.
+</p>
+<img src="../static/images/cnn/vgg-16.jpg" class="center-image">
+{% endblock %}s
