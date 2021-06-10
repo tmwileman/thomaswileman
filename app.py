@@ -91,5 +91,10 @@ def cnn():
     return render_template("cnn.html")
 
 
+@app.route("/asd_predictor", methods=["GET", "POST"])
+def asd():
+    return render_template("asd_predictor.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
