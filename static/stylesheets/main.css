@@ -536,8 +536,8 @@ span {
 }
 
 img.project-button {
-  width:95%;
-  height:95%;
+  width:30em;
+  height:20em;
   border-radius: 5%;
 }
 
