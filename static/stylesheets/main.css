@@ -15,7 +15,7 @@ h1.resume {
   background-color: white;
   color: #000000;
   font-family: 'Red Hat Text', sans-serif;
-  font-size: 1.75em;
+  font-size: 2.5em;
   font-weight: 500;
   text-align: center;
   margin : 0;
@@ -595,6 +595,19 @@ img.project-button {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+  }
+
+  h1.resume {
+    background-color: white;
+    color: #000000;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    margin : 0;
+    padding-bottom: 0;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 
   h2.notes {
