@@ -683,6 +683,12 @@ img.project-button {
     margin: auto;
   }
 
+  img.project-button {
+    width:10em;
+    height:5em;
+    border-radius: 5%;
+  }
+
   footer .copyright {
     width: 90%;
   }
