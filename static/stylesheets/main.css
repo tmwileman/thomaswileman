@@ -238,6 +238,18 @@ float: left;
 margin-top: 10px;
 }
 
+.note-right-half {
+  width: 50%;
+  float: right;
+  margin-top: 10px;
+  }
+
+.note-left-half {
+  width: 50%;
+  float: left;
+  margin-top: 10px;
+  } 
+
 .float-resume-right {
   width: 67%;
   float: right;
@@ -478,7 +490,13 @@ width: 20%;
 
 span {
   content: "\u0024";
-} 
+}
+
+img.project-button {
+  width:95%;
+  height:95%;
+  border-radius: 5%;
+}
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 600px) {
