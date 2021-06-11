@@ -128,7 +128,7 @@ p.notes {
   background-color: white;
   color: #000000;
   font-family: 'Red Hat Text', sans-serif;
-  font-size: 100%;
+  font-size: 1.1em;
   font-weight: 300;
   text-align: left;
   padding-top: 5px;
@@ -185,6 +185,10 @@ ol {
 li.header {
   padding-left: 5%;
   padding-right: 5%;
+}
+
+li.child {
+  list-style-type: "-";
 }
 
 hr {
@@ -352,6 +356,30 @@ table.logic-gate {
   vertical-align: middle;
   width: 12%;
   margin: auto;
+}
+
+table.resume-contact {
+  border: 0px !important;
+  border-collapse: collapse !important;
+  border:none !important;
+  outline:none !important;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+th.resume-contact {
+  border: 0px !important;
+  border-collapse: collapse !important;
+  border:none !important;
+  outline:none !important;
+}
+
+td.resume-contact {
+  border: 0px !important;
+  border-collapse: collapse !important;
+  border:none !important;
+  outline:none !important;
 }
 
 table.normal, th, td {
