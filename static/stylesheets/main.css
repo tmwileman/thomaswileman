@@ -156,6 +156,19 @@ ul.no-bullets {
   margin: 0; /* Remove margins */
 }
 
+ul.resume {
+  list-style-position: inside;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: white;
+  color: #000000;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 100%;
+  padding-bottom: 5px;
+  margin: auto;
+  list-style-type: none;
+}
+
 ol {
   list-style-position: inside;
   padding-left: 5%;
@@ -209,7 +222,7 @@ code {
 
 .float-container {
 padding: 10px;
-width: 65%;
+width: 60%;
 margin: auto;
 }
 
@@ -225,6 +238,17 @@ float: left;
 margin-top: 10px;
 }
 
+.float-resume-right {
+  width: 67%;
+  float: right;
+  margin-top: 10px;
+  }  
+
+.float-resume-left {
+  width: 33%;
+  float: left;
+  margin-top: 10px;
+  }
 
 .note-header {
   background-color: #f7f6f6;
