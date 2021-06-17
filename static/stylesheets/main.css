@@ -397,7 +397,7 @@ td.resume-contact {
   font-size: 1em;
 }
 
-table.normal, th, td {
+table.small, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
@@ -661,6 +661,11 @@ img.project-button {
     width: 95%;
     margin: auto;
     }
+
+  table.small {
+    width: 35%; 
+    margin: auto;
+  }
     
   table.medium {
     width: 50%; 
