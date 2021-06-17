@@ -686,6 +686,11 @@ img.project-button {
     margin: auto;
   }
 
+  table.medium-large {
+    width: 80%; 
+    margin: auto;
+  }
+
   table.large {
     width: 80%; 
     margin: auto;
