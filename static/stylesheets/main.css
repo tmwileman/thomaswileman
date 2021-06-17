@@ -689,6 +689,8 @@ img.project-button {
   table.medium-large {
     width: 90%; 
     margin: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
   }
 
   table.large {
