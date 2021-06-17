@@ -687,7 +687,8 @@ img.project-button {
   }
 
   table.medium-large {
-    width: 80%;
+    width: 90%; 
+    margin: auto;
   }
 
   table.large {
