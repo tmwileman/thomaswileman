@@ -410,13 +410,18 @@ table.medium {
   margin: auto;
 }
 
+table.medium-large {
+  width: 60%; 
+  margin: auto;
+}
+
 table.large {
   width: 80%; 
   margin: auto;
 }
 
 table.extra-large {
-  width: 950%; 
+  width: 95%; 
   margin: auto;
 }
 
