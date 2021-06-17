@@ -150,6 +150,10 @@ p.notes {
   margin: auto;
   }
 
+p.large-table {
+  font-size: .8em;
+  }
+
 ul {
   list-style-position: inside;
   padding-left: 5%;
