@@ -297,6 +297,7 @@ margin-top: 10px;
   }
 
 .equation-container {
+  padding: 10px;
   font-size: 100%;
   width: 60%;
   margin: auto;
