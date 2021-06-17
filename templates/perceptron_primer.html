@@ -7,66 +7,27 @@
     The perceptron was first introduced by Frank Rosenblatt in 1957 and serves as the building block of neural networks. In short, a perceptron is a linear classifier. This means that input data is evaluated agaist a boolean transformer (True or False comparison) and then returns either a 1 or a 0.
 </p>
 <p class="notes">
-    There are four components to a perceptron.
+    There are five components to a perceptron.
 </p>
-<table style="width: 80%; margin: 0 auto">
-    <tbody>
-        <tr>
-            <td>
-                <p>
-                    Inputs
-                </p>
-            </td>
-            <td>
-                <p>
-                    Bias
-                </p>
-            </td>
-            <td>
-                <p>
-                    Weights
-                </p>
-            </td>
-            <td>
-                <p>
-                    Weighted Sum of the Inputs
-                </p>
-            </td>
-            <td>
-                <p>
-                    Activation Function
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p class="notes">
-                    The data being evaluated. Perceptron can evaluate any number of inputs.
-                </p>
-            </td>
-            <td>
-                <p class="notes">
-                    Additional input. Helpful in layered networks because they are not influenced by the previous layer.
-                </p>
-            </td>
-            <td>
-                <p class="notes">
-                    Scalar values that control the signal (or strength) of the input (how much influence does an input have).
-                </p>
-            </td>
-            <td>
-                <p class="notes">
-                    The sum of all of the inputs and bias multiplied by their corresponding weight.
-                </p>
-            </td>
-            <td>
-                <p>
-                    An function used to translate the weighted sum into an output.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="float-container">
+    <ul>
+        <li>
+            <b>Inputs: </b>The data being evaluated. Perceptron can evaluate any number of inputs.
+        </li>
+        <li>
+            <b>Bias: </b>Additional input. Helpful in layered networks because they are not influenced by the previous layer.
+        </li>
+        <li>
+            <b>Weights: </b>Scalar values that control the signal (or strength) of the input (how much influence does an input have).
+        </li>
+        <li>
+            <b>Weighted Sum of the Inputs: </b>The sum of all of the inputs and bias multiplied by their corresponding weight.
+        </li>
+        <li>
+            <b>Activation Function: </b>An function used to translate the weighted sum into an output.
+        </li>
+    </ul>
+</div>
 <p class="notes">
     Now let's walk through how a perceptron works.
 </p>
