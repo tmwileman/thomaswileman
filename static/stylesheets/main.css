@@ -151,7 +151,7 @@ p.notes {
   }
 
 p.large-table {
-  font-size: .8em;
+  font-size: 1em;
   }
 
 ul {
@@ -656,6 +656,10 @@ img.project-button {
     padding-bottom: 5px;
     width: 80%;
     margin: auto;
+    }
+
+  p.large-table {
+    font-size: .8em;
     }
 
   .float-container {
