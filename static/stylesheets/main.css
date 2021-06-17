@@ -297,6 +297,7 @@ margin-top: 10px;
   }
 
 .equation-container {
+  font-size: 100%;
   width: 60%;
   margin: auto;
   }
@@ -669,6 +670,7 @@ img.project-button {
     }
 
   .equation-container {
+    font-size: 75%;
     width: 95%;
     margin: auto;
     }
