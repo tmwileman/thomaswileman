@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
 <meta property=”og:title” content=”Backpropagation”>
-<meta name=”image” property=”og:image” content=”https://thomaswileman.com/backpropagation#”>
+<meta name=”image” property=”og:image” content=”http://localhost:5000/static/images/backpropagation/bp_base.svg”>
 <meta name=”author” content=”Thomas Wileman”>
 <meta property=”og:description” content=”Note on backpropagation“>
 <meta property=”og:url” content=”https://thomaswileman.com/backpropagation">
@@ -32,7 +32,7 @@
 <p class="notes">
     Let's run through a simple example and examine how new model weights are calculated in backpropagation. Below is our initial model. It has two inputs, one hidden layer, and two outputs. The activation function in both the hidden layer and output layer is a sigmoid function. Our deisred outputs are 0.01 and 0.99.
 </p>
-<a target="_blank" href="#" onClick='zoom(this)'>
+<a href="../static/images/backpropagation/bp_base.svg" target="new">
     <img src="../static/images/backpropagation/bp_base.svg" class="center-image">
 </a>
 <h3 class="notes">
