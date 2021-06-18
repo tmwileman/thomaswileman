@@ -66,11 +66,6 @@ def backpropagation():
     return render_template("backpropagation.html")
 
 
-@app.route("/backpropagation/bp_image.svg", methods=["GET", "POST"])
-def backpropagation_image():
-    return render_template("../static/images/backpropagation/bp_base.svg")
-
-
 @app.route("/q_learning", methods=["GET", "POST"])
 def q_learning():
     return render_template("q_learning.html")
