@@ -2,7 +2,7 @@
 {% block head %}
 <meta property=”og:title” content=”Backpropagation”>
 <meta name="author" content="Thomas Wileman">
-<meta name="image" property="og:image" content="https://www.thomaswileman.com/static/Thomas_Head.png">
+<meta name="image" property="og:image" content="https://www.thomaswileman.com/static/images/backpropagation/back_prop_meta_image.png">
 <meta name="description" property="og:description" content="Backpropagation is the process of adjusting a model's weights based on its error. In this note, I walk through a custom example to show exactly how this is done.">
 {% endblock %}
 {% block body %}
@@ -139,7 +139,9 @@
 <p class="notes">
     We can not calculate $\frac{\partialE_{total}}{\partialw_{5}}$ directly since $w_{5}$ is not an input into the error function used above. $w_{5}$ is an input into a preceding calculation used to calculate total error making the total error function a composite function. However, we can use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> to calculate $\frac{\partialE_{total}}{\partialw_{5}}$. The chain rule allows us to calculate the impact of a variables in a composite function by multiplying linking partial derivatives together. See the visualization below:
 </p>
-<img src="../static/images/backpropagation/bp_part_derv.svg" class="center-image">
+<a href="static/images/backpropagation/back_prop_meta_image.png" target="new">
+    <img src="../static/images/backpropagation/bp_part_derv.svg" class="center-image">
+</a>
 <p class="notes">
     When we chain the three partial derivatives identified in the image above we can see how they cancel out to provide the partial derivative we need.
 </p>
