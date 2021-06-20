@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
-
+{% block head %}
+<meta property=”og:title” content=”Convolutional Neural Networks (CNNs)”>
+<meta name="author" content="Thomas Wileman">
+<meta name="image" property="og:image" content="https://www.thomaswileman.com/static/images/backpropagation/cnn_meta_image.png">
+<meta name="description" property="og:description" content="Convolutional neural networks (CNNs) systematically examine small portions of an input through various filters to learn the input's features. This note explains how each filter in a CNN contributes to the model's performance.">
+{% endblock %}
 {% block body %}
 <h2 class="notes">Convolutional Neural Networks (CNNs)</h2>
-<img src="../static/images/cnn/cnn_logo.svg" class="center-image">
+<a href="../static/images/cnn/cnn_meta_image.png" target="new">
+    <img src="../static/images/cnn/cnn_logo.svg" class="center-image">
+</a>
 <p class="notes">
     Convolutional neural networks (CNNs) systematically examine small portions of an input through various filters to learn the input's features. This process is completed using combinations of convolutional kernels and pooling layers that keep track of spatial information and find hidden features. These properties make CNNs great for tasks like image recognition, <a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio">speech generation </a>, and more. Let's discuss how convolutional kernels and pooling layers modify input data to accomplish these tasks.
 </p>
