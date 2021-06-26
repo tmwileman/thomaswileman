@@ -305,9 +305,14 @@ margin-top: 10px;
 
 .note-container {
   padding: 10px;
-  width: 60%;
+  width: 50%;
   margin: auto;
   }
+
+.project-container {
+  width: 50%;
+  margin: auto;
+    }
 
 .equation-container {
   padding: 10px;
@@ -564,9 +569,12 @@ span {
 }
 
 img.project-button {
-  width:30em;
-  height:20em;
+  width:375px;
+  height:250px;
   border-radius: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
