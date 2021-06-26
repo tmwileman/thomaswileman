@@ -760,8 +760,8 @@ img.project-button {
   }
 
   img.project-button {
-    width:375px;
-    height:250px;
+    width:100px;
+    height:33px;
     border-radius: 5%;
     display: block;
     margin-left: auto;
