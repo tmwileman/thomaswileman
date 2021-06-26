@@ -753,3 +753,17 @@ img.project-button {
   footer .social {
     width: 100%;
   }
+
+  .project-container {
+    width: 80%;
+    margin: auto;
+  }
+
+  img.project-button {
+    width:375px;
+    height:250px;
+    border-radius: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
