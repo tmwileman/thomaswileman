@@ -96,5 +96,10 @@ def asd():
     return render_template("asd_predictor.html")
 
 
+@app.route("/rnn", methods=["GET", "POST"])
+def rnn():
+    return render_template("rnn.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
