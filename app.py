@@ -96,9 +96,9 @@ def asd():
     return render_template("asd_predictor.html")
 
 
-@app.route("/rnn", methods=["GET", "POST"])
-def rnn():
-    return render_template("rnn.html")
+@app.route("/lstm", methods=["GET", "POST"])
+def lstm():
+    return render_template("lstm.html")
 
 
 if __name__ == "__main__":
