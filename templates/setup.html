@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+<meta property=”og:title” content=”setup.py”>
+<meta name="author" content="Thomas Wileman">
+<meta name="image" property="og:image" content="https://www.thomaswileman.com/static/images/cnn/cnn_meta_image.png">
+<meta name="description" property="og:description" content="Convolutional neural networks (CNNs) systematically examine 
+small portions of an input through various filters to learn the input's features. This note explains how each filter in 
+a CNN contributes to the model's performance.">
+{% endblock %}
+{% block body %}
+<h2 class="notes">Setup.py</h2>
+<p class="notes">
+    Consider the following example. You have built a number of functions specific to your company's data. Your co-workers 
+    see the value in your work and would like to use them too. What's more, they would like to reference your work 
+    without having to rewrite the functions in every project they're used in. How can you package your code so they can 
+    easily install it on their systems? 
+    
+    Setup.py enables allow you to easily build and distribute Python packages. This is especially true for packages that
+    include dependencies. The main purpose of the setup script is to describe your module distribution so the various 
+    commands that operate on your modules do the right thing.
+
+    A bare-bones python project contains two files. Your python functional python code and a setup file. The setup file 
+    is full of metadata describing the project. At a minimum the setup file contains information on the project's name, 
+    version, and packages. However, there are no limits to what you can do in a setup file. 
+
+    For instance, setup files can be used to build and install whole packages or individual modules. They can also be 
+    used to interface with the command line, install package data, or install packages written in other programming
+    languages. All of this metadata is used to build your package, including its dependencies, when installed on another users 
+    system. 
+</p>
