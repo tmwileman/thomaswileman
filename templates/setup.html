@@ -2,29 +2,74 @@
 {% block head %}
 <meta property=”og:title” content=”setup.py”>
 <meta name="author" content="Thomas Wileman">
-<meta name="image" property="og:image" content="https://www.thomaswileman.com/static/images/cnn/cnn_meta_image.png">
-<meta name="description" property="og:description" content="Convolutional neural networks (CNNs) systematically examine 
-small portions of an input through various filters to learn the input's features. This note explains how each filter in 
-a CNN contributes to the model's performance.">
+<meta name="description" property="og:description" content="Setup files enable you to share your python packages. They do this by ">
 {% endblock %}
 {% block body %}
 <h2 class="notes">Setup.py</h2>
 <p class="notes">
-    Consider the following example. You have built a number of functions specific to your company's data. Your co-workers 
-    see the value in your work and would like to use them too. What's more, they would like to reference your work 
-    without having to rewrite the functions in every project they're used in. How can you package your code so they can 
-    easily install it on their systems? 
-    
-    Setup.py enables allow you to easily build and distribute Python packages. This is especially true for packages that
-    include dependencies. The main purpose of the setup script is to describe your module distribution so the various 
-    commands that operate on your modules do the right thing.
-
-    A bare-bones python project contains two files. Your python functional python code and a setup file. The setup file 
-    is full of metadata describing the project. At a minimum the setup file contains information on the project's name, 
-    version, and packages. However, there are no limits to what you can do in a setup file. 
-
-    For instance, setup files can be used to build and install whole packages or individual modules. They can also be 
-    used to interface with the command line, install package data, or install packages written in other programming
-    languages. All of this metadata is used to build your package, including its dependencies, when installed on another users 
-    system. 
+    Consider the following example. You have built a number of functions specific to your company's data. Your co-workers see the value in your work and would like to use them. What's more, they would like to reference your work without having to rewrite it in every project they use it in. How can you package your code so they can easily install it on their systems?
 </p>
+<p class="notes">
+    Setup.py enables allow you to easily build and distribute Python packages. This is especially true for packages that include dependencies. Setup.py files ensures all packages load correctly. The main purpose of the setup script is to describe your module distribution so the various commands that operate on your modules do the right thing.
+</p>
+<p class="notes">
+    A bare-bones python project contains two files. Your python functional python code and a setup file. The setup file is full of metadata describing the project. At a minimum the setup file contains the following: information on the project's name, version, and packages.
+</p>
+<div class="note-container">
+    <ul>
+        <li>
+            <b>name</b> - unique if you wish to publish your package on the Python Package Index (PyPI)
+        </li>
+        <li>
+            <b>version</b> - keeps track of different releases of the project
+        </li>
+        <li>
+            <b>find_packages</b> - describes where you’ve put the Python source code within your project
+        </li>
+    </ul>
+</div>
+<pre>
+    <code class="python">import pathlib 
+        from setuptools import setup
+            
+        # The directory containing this file
+        here = pathlib.Path(__file__).parent
+
+        # This call to setup() does all the work
+        setup(
+            name="my_project",
+            version="1.0.0",
+            find_packages(include=['myproject'])
+        )</code>
+</pre>
+<p class="notes">
+    However, there are no limits to what you can do in a setup file.For instance, setup files can be used to build and install whole packages or individual modules. They can also be used to interface with the command line, install package data, or install packages written in other programming languages. All of this metadata is used to build your package, including its dependencies, when installed on another users system.
+</p>
+<p class="notes">
+    <b>Entry Points: </b>Entry points enable you to define how packages are accessed via the command line.
+</p>
+<pre>
+    <code class="python">setup(
+        # ...,
+        entry_points={
+            'console_scripts': ['run=myproject.example:main']
+        }
+    )</code>
+</pre>
+<p class="notes">
+    The entry point above enables users to run the main.py file using "run" in the command line.
+</p>
+<p class="notes">
+    <b>Tests: </b>Tests can be included to ensure the package installs correctly or that the application works properly. Not only does Setup.py give you the ability to conduct these tests, it provides the flexibility to include tests inside or outside the application.
+</p>
+<pre>
+    <code class="python">setup(
+        # ...,
+        test_suite='nose.collector',
+        tests_require=['nose']
+    )</code>
+</pre>
+<p class="notes">
+    The test suite and test require commands ensure Nose is installed when tests are run.
+</p>
+{% endblock %}
