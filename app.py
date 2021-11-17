@@ -104,5 +104,9 @@ def lstm():
 def setup():
     return render_template("setup.html")
 
+@app.route("/setup", methods=["GET", "POST"])
+def setup():
+    return render_template("setup.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
