@@ -14,6 +14,9 @@ def home():
 def notes():
     return render_template("notes.html")
 
+@app.route("/blog", methods=["GET", "POST"])
+def blog():
+    return render_template("blog.html")
 
 @app.route("/about", methods=["GET", "POST"])
 def about():
