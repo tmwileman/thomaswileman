@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">NumPy Introduction</h2>
-<img src="../static/images/numpy_intro/numpy_intro.png" class="center-image">
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Numpy Introduction</h1>
+    </div>
+    <div class="note-image-box">
+        <img class="note-image" src="../static/images//numpy_intro/numpy_intro.png">
+    </div>
+</section>
 <p class="notes">
     NumPy is a python library used to perform operations on large, multi-dimensional arrays and matrices. Importantly, NumPy performs these operations on blocks of data called <i>ndarrays</i> (n-dimensional arrays). <i>ndarrays</i> can be efficiently stored (cached) in memory by the CPU because the data has a fixed size, is all the same type, and located in the same python object. Other data structures like Python lists point to individual objects in random memory locations and do not have fixed sizes or data types. This means <i>ndarrays</i> can be used to perform complex calculations much faster than we would with lists.
 </p>

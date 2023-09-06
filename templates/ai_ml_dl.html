@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">Artifical Intelligence vs Machine Learning vs Deep Learning</h2>
-<img src="../static/ai_ml_dl.svg" class="center-image">
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">AI vs ML vs Deep Learning</h1>
+    </div>
+    <div class="note-image-box">
+        <img class="note-image" src="../static/ai_ml_dl.svg">
+    </div>
+</section>
 
 <p class="notes">Keeping track of the differences between Artifical Intelligence (AI), Machine Learning (ML), and Deep Learning (DL) can be confusing. However, there are two fundamental ideas that help me differentiate these concepts. First, it's important to remember that these concepts are nested. For example, all DL is ML but not all ML is DL. Similarly, all ML is AI but not all AI is ML. Second, the understanding that ML is simply an AI technique and that DL is an ML technique.</p>
 <div class="float-container">
@@ -10,17 +16,17 @@
         <tbody>
             <tr>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Artifical Intelligence
                     </p>
                 </td>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Machine Learning
                     </p>
                 </td>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Deep Learning
                     </p>
                 </td>
@@ -74,17 +80,17 @@
         <tbody>
             <tr>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Supervised Learning
                     </p>
                 </td>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Unsupervised Learning
                     </p>
                 </td>
                 <td>
-                    <p>
+                    <p style="font-weight: bold; text-align: center;">
                         Reinforcement Learning
                     </p>
                 </td>
@@ -109,7 +115,9 @@
 <p class="notes">
     DL, a component of ML, are a set of algorithms whose structure is based on the the information processing and distributed communication nodes found in the human brain. DL algorithms use multiple layers of preceptrons (algorithms that take an action on an input if a threshold is met) to extract high-level features that can be used to make predictions.
 </p>
-<img src="../static/Multi-Layer_Neural_Network-Vector-Blank.svg.png" class="center" style="width:50%">
+<div class="note-image-box">
+    <img src="../static/Multi-Layer_Neural_Network-Vector-Blank.png" class="note-image">
+</div>
 <p class="notes">
     The first working DL algorithm was completed by Alexey Ivakhnenko and Lapa in 1967 and by 1991 DL algorithms were being used to recognize hand-written digits. A key development in DL was the incorporation of backpropagation algorithms to update preceptron weights to decrease a network's loss function. This and other key developments have made DL a reliable technology for image recognition, natural language processing, mobile advertising, recommendation systems, and much more.
 </p>

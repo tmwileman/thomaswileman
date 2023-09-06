@@ -6,20 +6,26 @@
 <meta name="description" property="og:description" content="Recurrent neural networks (RNNs) systematically examine small portions of an input through various filters to learn the input's features. This note explains how each filter in a CNN contributes to the model's performance.">
 {% endblock %}
 {% block body %}
-<h2 class="notes">
-    Long Short Term Memory (LSTM) Networks
-</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Long Short Term Memory (LSTM) Networks</h1>
+    </div>
+</section>
 <p class="notes">
     LSTM networks use previous results as model inputs to make new predictions. Consider the following example. You've trained a neural network to identify an animal by its shilouette. You run three images through your network and achieve the following results:
 </p>
-<img src="../static/images/lstm/lstm_intro_1.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/lstm/lstm_intro_1.svg">
+</div>
 <p class="notes">
     Your model correctly classified the first two as an eagle and ostrich respectively. However, the third image (which is clearly a duck) is classified as a bunny. The first two images seem to indicate that your model is being fed shilouettes from a library of bird images. Wouldn't it be great if we could use the information from the two previous iterations to inform our prediction on the third iteration? We can thanks to LSTMs.
 </p>
 <p class="notes">
     LSTMs use the results of previous iterations as input into the next iteration. In our case, the results of the first iteration (the image of the eagle) are used to help identify the ostrich. Next, the eagle and ostrich predictions are used to classify the final shilouette as a duck.
 </p>
-<img src="../static/images/lstm/lstm_intro_2.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/lstm/lstm_intro_2.svg">
+</div>
 <p class="notes">
     Importantly, LSTMs use two types of memory, short term and long term, to aid predictions. Short term memory is obtained by incorporating the previous output with the current model to create a single linear function; enabling previous results to influence the current event. However, as with all neural networks, linear functions are fed to activation functions which have the effect of decreasing the influence of older events. We overcome this issue using logic gates that help us maintain model outputs that would otherwise be forgotten.
 </p>
@@ -29,7 +35,7 @@
 <p class="notes">
 
 </p>
-<a href="../static/images/lstm/lstm_diagram.svg" target="new">
-    <img src="../static/images/lstm/lstm_diagram.svg" class="center-image">
-</a>
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/lstm/lstm_diagram.svg">
+</div>
 {% endblock %}s

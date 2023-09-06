@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">Q Learning</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Q Learning</h1>
+    </div>
+</section>
 <p class="notes">
     Q-Learning is a reinforcement learning technique that finds the optimal path through a maze to the desired end state. As an example, say we're interested in training a mouse to run through a maze as quickly as possible. We could put cheese at key parts of the maze to "reward" the mouse for making the preferred decision and brussel sprouts at the other parts of the maze to "punish" the mouse for making the wrong decision. If we ran this test over and over we’d probably see the mouse's time to complete the maze decrease as it "learned" the optimal route. Q-Learning works in much the same way. However, instead of cheese and brussel sprouts, Q-Learning models use numerical rewards and action values (known as Q-values) to find the optimal behavior in a defined state space.
 </p>
-<img src="../static/images/q_learning/maze_initial.png" class="center-image-large">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/q_learning/maze_initial.png">
+</div>
 <p class="notes">
     The first step is to identify all possible transitions within our state space. In the case of the maze, our state space are all of the rooms in the maze and the transitions are all of the doors that connect various rooms. This gives us the table below.
 </p>

@@ -1,55 +1,53 @@
-h1 {
-  background-color: white;
+/* Common styles for headings */
+h1,
+h2,
+h3,
+h4 {
   color: #000000;
   font-family: 'Red Hat Text', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
   font-size: 250%;
   font-weight: 500;
-  text-align: center;
-  margin : 0;
-  padding-bottom: 0;
+}
+
+h1.nav {
   padding-left: 15%;
   padding-right: 15%;
 }
 
 h1.resume {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 2.5em;
-  font-weight: 500;
-  text-align: center;
-  margin : 0;
-  padding-bottom: 0;
-  padding-left: 15%;
-  padding-right: 15%;
 }
 
 h2 {
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 150%;
   font-weight: 500;
-  text-align: center;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 15%;
   padding-right: 15%;
 }
 
+h2.recent {
+  font-weight: 700;
+}
+
+h2.contact {
+  font-weight: 700;
+  color: white
+}
+
 h2.notes {
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 225%;
-  font-weight: 500;
-  text-align: center;
   padding-top: 1px;
   padding-bottom: 1px;
 }
 
 h2.resume {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 100%;
   font-weight: 550;
   text-align: left;
@@ -59,77 +57,46 @@ h2.resume {
 }
 
 h3 {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 85%;
   font-weight: 500;
-  text-align: left;
   padding-left: 15%;
   padding-right: 15%;
 }
 
 h3.notes {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 85%;
-  font-weight: 500;
-  text-align: left;
-  padding-left: 15%;
-  padding-right: 15%;
-}
-
-h3.resume {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 150%;
-  font-weight: 500;
-  text-align: center;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 15%;
-  padding-right: 15%;
-}
-
-h3.notes {
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 175%;
-  font-weight: 500;
-  text-align: center;
   padding-top: 10px;
   padding-bottom: 1px;
 }
 
+h3.resume {
+  font-size: 150%;
+}
+
+h3.notes {
+  font-size: 175%;
+}
+
 h4 {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
   font-size: 100%;
   font-weight: 500;
-  text-align: center;
   padding-top: 1%;
   padding-left: 15%;
   padding-right: 15%;
 }
 
-p {
-background-color: white;
-color: #000000;
-font-family: 'Red Hat Text', sans-serif;
-font-size: 100%;
-font-weight: 500;
-text-align: center;
-width: 60%;
-margin: auto;
+h5 {
+  font-size: 100%;
+  font-weight: 700
 }
 
-p.resume { 
-  background-color: white;
+/* Common styles for paragraphs */
+p {
   color: #000000;
   font-family: 'Red Hat Text', sans-serif;
+}
+
+p.resume {
   font-size: 100%;
   font-weight: 500;
   text-align: left;
@@ -137,10 +104,8 @@ p.resume {
   padding-top: 2%;
 }
 
-p.notes {
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
+p.notes,
+p.projects {
   font-size: 1.1em;
   font-weight: 300;
   text-align: left;
@@ -148,26 +113,26 @@ p.notes {
   padding-bottom: 5px;
   width: 60%;
   margin: auto;
-  }
+}
 
-p.projects { 
-  background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
+p.projects {
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
   width: 100%;
+  font-weight: 100;
+}
+
+p.recent {
+  font-size: 90%;
+  font-weight: 75%;
+  background-color: rgba(255, 255, 255, 0.65);
+  text-align: center;
   margin: auto;
-  }
+  font-weight: 300;
+}
 
-p.large-table {
-  font-size: 1em;
-  }
-
-ul {
+/* Common styles for lists */
+ul,
+ol {
   list-style-position: inside;
   padding-left: 5%;
   padding-right: 5%;
@@ -181,9 +146,9 @@ ul {
 }
 
 ul.no-bullets {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 ul.resume {
@@ -221,549 +186,89 @@ li.child {
   list-style-type: "-";
 }
 
-hr {
-  width: 90%;
-}
-
-code-text {
-    background-color: white;
-    color: #000000;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 100%;
-    font-weight: 500;
-    text-align: center;
-    width: 60%;
-    margin: auto;
-}
-
+/* Common styles for code elements */
+code-text,
 code {
+  display: inline-block;
+  white-space: pre-wrap;
+  background-color: white;
   color: #000000;
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 100%;
+  font-weight: 500;
   width: 50%;
   margin: auto;
 }
-  
-.container {
-  display: flex;
-  justify-content: center;
-}
 
-.child {
-  margin: 0 auto;
-}
-
-.float-container {
-padding: 10px;
-width: 60%;
-margin: auto;
+/* Common styles for containers */
+.main-container,
+.note-container,
+.equation-container,
+.project-container,
+.float-container,
+.note-right-half,
+.note-left-half {
+  padding: 10px;
+  width: 60%;
+  margin: auto;
 }
 
 .float-child-primary {
-width: 80%;
-float: right;
-margin-top: 10px;
-}  
-
-.float-child-secondary {
-width: 20%;
-float: left;
-margin-top: 10px;
-}
-
-.note-right-half {
-  width: 50%;
+  width: 80%;
   float: right;
   margin-top: 10px;
-  }
+}
 
-.note-left-half {
-  width: 50%;
+.float-child-secondary {
+  width: 20%;
   float: left;
   margin-top: 10px;
-  } 
+}
 
 .float-resume-right {
   width: 67%;
   float: right;
   margin-top: 10px;
-  }  
+}
 
 .float-resume-left {
   width: 33%;
   float: left;
   margin-top: 10px;
-  }
-
-.note-header {
-  background-color: #f7f6f6;
-  color: rgb(84, 84, 84);
-  padding: 10px 20px 10px 20px;
-  margin-bottom: 20px;
-  }
-
-.note-container {
-  padding: 10px;
-  width: 50%;
-  margin: auto;
-  }
-
-.project-container {
-  width: 50%;
-  margin: auto;
-    }
-
-.equation-container {
-  padding: 10px;
-  font-size: 100%;
-  width: 60%;
-  margin: auto;
-  }
-  
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.center-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-}
-
-.center-image-small {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 7%;
-}
-
-.center-image-medium {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 15%;
-}
-
-.center-image-large {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-}
-
-.center-image-xlarge {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-}
-
-.two-column-table {
-  border-collapse: collapse;
-  text-align: center;
-  width: 40%;
-  margin: auto;
-}
-
-.code-table {
-  border-collapse: collapse;
-  text-align: center;
-  width: 10%;
-}
-
-table td {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  text-align: center; 
-  vertical-align: middle;
-}
-
-table.logic-gate {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  text-align: center; 
-  vertical-align: middle;
-  width: 12%;
-  margin: auto;
-}
-
-table.resume-contact {
-  border: 0px !important;
-  border-collapse: collapse !important;
-  border:none !important;
-  outline:none !important;
-  text-align: center;
-  width: 40%;
-  margin: auto;
-}
-
-th.resume-contact {
-  border: 0px !important;
-  border-collapse: collapse !important;
-  border:none !important;
-  outline:none !important;
-  font-size: 1em;
-}
-
-td.resume-contact {
-  border: 0px !important;
-  border-collapse: collapse !important;
-  border:none !important;
-  outline:none !important;
-  font-size: 1em;
-}
-
-table.small, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  text-align: center;
-  width: 10%;
-  margin: auto;
-}
-
-table.medium {
-  width: 15%; 
-  margin: auto;
-}
-
-table.medium-large {
-  width: 60%; 
-  margin: auto;
-}
-
-table.large {
-  width: 80%; 
-  margin: auto;
-}
-
-table.extra-large {
-  width: 95%; 
-  margin: auto;
-}
-
-p.table {
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Center items horizontally */
+  align-items: center;
+  /* Center items vertically */
   background-color: white;
-  color: #000000;
-  font-family: 'Red Hat Text', sans-serif;
-  font-size: 100%;
-  font-weight: 300;
-  text-align: center;
-  vertical-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 60%;
-  margin: auto;
-  }
-
-/* Style the header with a green background and some padding */
-div.header {
-display: inline-block;
-overflow: hidden;
-background-color: #1ADB7E;
-padding: 20px 10px;
-width: 100%;
+  padding: 1em 0;
+  /* Add some padding for spacing */
 }
 
-/* Style the header links */
-div.header a {
-display: inline-flex;
-padding: 5px;
-color: black;
-font-family: 'Red Hat Text', sans-serif;
-font-size: 100%;
-font-weight: 500;
-line-height: 10%;
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  /* Add spacing between icon and text */
+  padding: 0.5em;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black !important;
+  /* Set the text color to black */
+  text-decoration: none;
+  /* Remove the default underline from links */
 }
 
-/* Change the background color on mouse-over */
-div.header a:hover {
-color: #FFFFFF;
-}
-
-/* Float the link section to the right */
-div.header-right {
-float: right;
-}
-
-footer {
-width: 100%;
-display: inline-block;
-margin: 2em 0;
-height: 70px;
-background-color: #1ADB7E;
-}
-footer .copyright {
-width: 50%;
-float: left;
-}
-
-footer .copyright p {
-padding-left: 10%;
-background-color: #1ADB7E;
-color: #000000;
-font-size: 0.7em;
-line-height: 70px;
-text-transform: capitalize;
-letter-spacing: 1px;
-}
-
-footer .social {
-width: 50%;
-float: right;
-}
-
-footer .social a {
-float: left;
-line-height: 70px;
-text-decoration: none;
-color: white;
-text-align: center;
-font-weight: bold;
--moz-transition: all, 0.3s;
--o-transition: all, 0.3s;
--webkit-transition: all, 0.3s;
-transition: all, 0.3s;
-}
-
-footer .social a:hover {
-background-color:#999;
--moz-transition: all, 0.3s;
--o-transition: all, 0.3s;
--webkit-transition: all, 0.3s;
-transition: all, 0.3s;
-}
-
-a.linked {
-background-color: #1e83ae;
-font-size: 1.2em;
-width: 20%;
-}
-
-a.git {
-background-color: #FFFFFF;
-font-size: 0.3em;
-width: 20%;
-}
-
-a.tweet {
-background-color: #3dacdd;
-font-size: 1.2em;
-width: 20%;
-}
-
-a.contact {
-background-color: #abafad;
-font-size: 0.8em;
-width: 20%;
-}
-
-span {
-  content: "\u0024";
-}
-
-img.project-button {
-  width:375px;
-  height:250px;
-  border-radius: 5%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+/* Media Query for mobile devices */
 @media screen and (max-width: 600px) {
-  .header a {
-    float: none;
-    padding: 1px;
-    display:inline;
-    text-align: center;
-    background-color: #1ADB7E;
+  .footer-container {
+    flex-direction: column;
+    /* Stack items vertically on mobile */
+    align-items: center;
+    /* Center items horizontally on mobile */
   }
-
-  .header-right {
-    float: right;
-    text-align: right;
-  }
-
-  .float-container {
-    padding: 10px;
-    width: 98%;
-    margin: auto;
-  }
-
-  .center-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-  
-  .center-image-small {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 28%;
-  }
-  
-  .center-image-medium {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-  
-  .center-image-large {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-  
-  .center-image-xlarge {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-  }
-
-  h1.resume {
-    background-color: white;
-    color: #000000;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 1.5em;
-    font-weight: 500;
-    text-align: center;
-    margin : 0;
-    padding-bottom: 0;
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-
-  h2.notes {
-    color: #000000;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 175%;
-    font-weight: 500;
-    text-align: center;
-    padding-top: 1px;
-    padding-bottom: 1px;
-  }
-
-  p.notes {
-    background-color: white;
-    color: #000000;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 100%;
-    font-weight: 300;
-    text-align: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 80%;
-    margin: auto;
-    }
-
-  p.projects {
-    background-color: white;
-    color: #000000;
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 100%;
-    font-weight: 300;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 95%;
-    }
-
-  p.large-table {
-    font-size: .8em;
-    }
-
-  .float-container {
-    padding: 10px;
-    width: 95%;
-    margin: auto;
-    font-size: 80%;
-    }
-
-  .equation-container {
-    font-size: 80%;
-    width: 95%;
-    margin: auto;
-    }
-
-  .note-container {
-    padding: 10px;
-    width: 95%;
-    margin: auto;
-    }
-
-  table.small {
-    width: 35%; 
-    margin: auto;
-  }
-    
-  table.medium {
-    width: 50%; 
-    margin: auto;
-  }
-
-  table.medium-large {
-    width: 90%; 
-    margin: auto;
-    border-spacing: 0;
-    border-collapse: collapse;
-  }
-
-  table.large {
-    width: 80%; 
-    margin: auto;
-  }
-
-  code {
-    color: #000000;
-    font-size: 80%;
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 5px;
-    width: 95%;
-    margin: auto;
-  }
-
-  img.project-button {
-    width:10em;
-    height:5em;
-    border-radius: 5%;
-  }
-
-  footer .copyright {
-    width: 90%;
-  }
-  footer .copyright p {
-    text-align: center;
-    padding: 0;
-  }
-  footer .social {
-    width: 100%;
-  }
-
-  .project-container {
-    width: 80%;
-    margin: auto;
-  }
-
-  img.project-button {
-    width:125px;
-    height:75px;
-    border-radius: 5%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+}

@@ -1,0 +1,134 @@
+/* Style for the hero section */
+.hero-section {
+    gap: 10px;
+    background-color: white;
+    padding: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    max-width: 60%;
+}
+
+.hero-text {
+    background-color: #fff;
+    padding: 5px;
+}
+
+/* Style for other sections as needed */
+.lower-section {
+    display: grid;
+    gap: 5px;
+    background-color: white;
+    padding: 20px;
+    padding-top: 5px;
+    margin: auto;
+    max-width: 60%;
+}
+
+.contact-section {
+    display: grid;
+    gap: 5px;
+    background-color: white;
+    padding: 20px;
+    padding-top: 5px;
+    margin: auto;
+    max-width: 70%;
+}
+
+.contact-header {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-section li {
+    margin-bottom: 10px;
+}
+
+.contact-section li a {
+    color: white;
+}
+
+.no-bullet {
+    list-style-type: none;
+}
+
+.icon>svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: .2em;
+}
+
+.page-title {
+    font-family: dosis, "HelveticaNeue-CondensedBold", "trebuchet ms", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    font-size: 3.75em;
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+.intro {
+    font-size: 1.25em;
+    margin-bottom: 0;
+    text-align: center;
+    align-items: center;
+}
+
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    position: relative;
+    display: inline-block;
+    flex: 1 0 150px;
+    flex-basis: calc(20% - 10px);
+    background-color: white;
+    padding: 2px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+/* Set text color for links inside the .box class */
+.box a {
+    color: black;
+    font-weight: 700;
+}
+
+.box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.box .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.65);
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    /* Additional text styles can be added as needed */
+}
+
+/* Media Query for narrow screens */
+@media (max-width: 600px) {
+    .box {
+        flex-basis: 100%;
+        /* Set flex-basis to 100% to make boxes stack */
+    }
+
+    .page-title {
+        font-size: 24px;
+        /* Decrease font size for smaller screens */
+    }
+}

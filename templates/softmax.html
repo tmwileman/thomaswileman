@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">Softmax Function</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Softmax Function</h1>
+    </div>
+</section>
 <p class="notes">
     Softmax functions simply take numeric inputs and return probabilities. Each probability represents the proportion of its corresponding input as a part of all the inputs. This is important because when a neural network is used to predict an outcome, it will often return a vector that scores the inputs against each possible outcome. Unfortunately, these scores are not normalized or scaled (the scores don't sum to one), making the results difficult to interpret and poor inputs for follow-on ML algorithms&#185. The softmax function corrects this by converting the scores to a normalized probability distribution.
 </p>
