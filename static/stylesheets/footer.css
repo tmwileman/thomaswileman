@@ -1,0 +1,35 @@
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    background-color: white;
+    padding: 1em 0;
+    /* Add some padding for spacing */
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    /* Add spacing between icon and text */
+    padding: 0.5em;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black !important;
+    /* Set the text color to black */
+    text-decoration: none;
+    /* Remove the default underline from links */
+}
+
+/* Media Query for mobile devices */
+@media screen and (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        /* Stack items vertically on mobile */
+        align-items: center;
+        /* Center items horizontally on mobile */
+    }
+}

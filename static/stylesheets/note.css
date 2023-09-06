@@ -1,0 +1,32 @@
+.note-header {
+    position: relative;
+    gap: 10px;
+    background-color: white;
+    padding: 5px;
+    padding-bottom: 5px;
+    margin: auto;
+    max-width: 60%;
+    align-items: center;
+}
+
+.note-title {
+    background-color: #fff;
+    padding: 5px;
+}
+
+.note-image-box {
+    /* Your existing styles */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+}
+
+.note-image {
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+}

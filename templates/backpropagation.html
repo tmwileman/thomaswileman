@@ -6,9 +6,14 @@
 <meta name="description" property="og:description" content="Backpropagation is the process of adjusting a model's weights based on its error. In this note, I walk through a custom example to show exactly how this is done.">
 {% endblock %}
 {% block body %}
-<h2 class="notes">
-    Backpropagation
-</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Backpropagation</h1>
+    </div>
+    <div class="note-image-box">
+        <img class="note-image" src="../static/perceptron_primer.svg">
+    </div>
+</section>
 <p class="notes">
     Backpropagation is the process of adjusting a model's weights based on its error. The intention of backpropagation is to adjust the model so that the output of the next model run (feedforward operation) is more closely aligned to the desired outcome that the previous model run. This process is completed via the following steps:
 </p>
@@ -31,16 +36,19 @@
 <p class="notes">
     Let's run through a simple example and examine how new model weights are calculated in backpropagation. Below is our initial model. It has two inputs, one hidden layer, and two outputs. The activation function in both the hidden layer and output layer is a sigmoid function. Our deisred outputs are 0.01 and 0.99.
 </p>
-<a href="../static/images/backpropagation/bp_base.svg" target="new">
-    <img src="../static/images/backpropagation/bp_base.svg" class="center-image">
-</a>
+<div class="note-image-box">
+    <a href="../static/images/backpropagation/bp_base.svg" target="new"></a>
+    <img class="note-image" src="../static/images/backpropagation/bp_base.svg">
+</div>
 <h3 class="notes">
     Step 1: Feedforward
 </h3>
 <p class="notes">
     We be begin by initializing our model with random weights (you can also manually input initial weights if you want) and then calculating the model's outputs. See a graphical representation of this step and each calculation below.
 </p>
-<img src="../static/images/backpropagation/bp_initial.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/backpropagation/bp_initial.svg">
+</div>
 <div class="equation-container">
     <div class="equation-container" style="float:left; width: 50%;">
         <div class="equation-container">
@@ -139,13 +147,14 @@
 <p class="notes">
     We can not calculate $\frac{\partialE_{total}}{\partialw_{5}}$ directly since $w_{5}$ is not an input into the error function used above. $w_{5}$ is an input into a preceding calculation used to calculate total error making the total error function a composite function. However, we can use the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a> to calculate $\frac{\partialE_{total}}{\partialw_{5}}$. The chain rule allows us to calculate the impact of a variables in a composite function by multiplying linking partial derivatives together. See the visualization below:
 </p>
-<a href="static/images/backpropagation/back_prop_meta_image.png" target="new">
-    <img src="../static/images/backpropagation/bp_part_derv.svg" class="center-image">
-</a>
+<div class="note-image-box">
+    <a href="static/images/backpropagation/back_prop_meta_image.png" target="new"></a>
+    <img class="note-image" src="../static/images/backpropagation/bp_part_derv.svg">
+</div>
 <p class="notes">
     When we chain the three partial derivatives identified in the image above we can see how they cancel out to provide the partial derivative we need.
 </p>
-<div class="center-image">
+<div class="equation-container">
     $\frac{\partialE_{total}}{\partialw_{5}}=\frac{\partialE_{total}}{\partialout_{o1}}x\frac{\partialout_{o1}}{\partialnet_{o1}}x\frac{\partialnet_{o1}}{\partialw_{5}}$
 </div>
 <p class="notes">
@@ -230,7 +239,9 @@
 <p class="notes">
     Now, we replace our model's weights with the updated values and start again.
 </p>
-<img src="../static/images/backpropagation/bp_final.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/backpropagation/bp_final.svg">
+</div>
 <p class="notes">
     Notice that while our total error after one step will still be 0.26, the net outputs in the hidden layer have changed. Given enough iterations, these small steps will result in large changes to the weights of our model, reducing the model's total error and improving our predictive capability.
 </p>

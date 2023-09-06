@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">Perceptrons as Logic Gates</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Perceptrons as Logic Gates</h1>
+    </div>
+</section>
 
 <p class="notes">
     Perceptrons are designed to mimic the decision processes that take place in the human brain. In <a href="http://www.thomaswileman.com/perceptron_primer">Perceptron Primer</a> we discussed the structure of a perceptron and how it works. An important component
@@ -105,7 +109,7 @@
 <p class="notes">
     Consider an example in which we would like to generate an AND operator for the linear function <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B = 0</math>. Given the following inputs, [(0,0), (1,0), (0,1), (1,1)], we expect the AND operator to give the following results, [False, False, False, True]. We need to identify a combination of weights and bias that will provide the desired results. We can achieve these results when we set each weight equal to 1 and the bias equal to -2 (this is not the only solution). The table below shows how the weighted sums of each input provide the desired results.
 </p>
-<table class="medium-large">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -297,7 +301,9 @@
 <p class="notes">
     Represented grapically:
 </p>
-<img src="../static/images/perceptrons_and_logic_gates/AND_perceptron.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/perceptrons_and_logic_gates/AND_perceptron.svg">
+</div>
 <h3 class="notes">
     OR Perceptron
 </h3>
@@ -402,7 +408,7 @@
 <p class="notes">
     In our case, one way to create an OR operator is to set each weight equal to 2 and the bias equal to -2. The table below shows how the weighted sums of each input provide the desired results.
 </p>
-<table class="medium-large">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -594,7 +600,9 @@
 <p class="notes">
     Represented grapically:
 </p>
-<img src="../static/images/perceptrons_and_logic_gates/OR_perceptron.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/perceptrons_and_logic_gates/OR_perceptron.svg">
+</div>
 <h3 class="notes">
     NOT Perceptron
 </h3>
@@ -644,7 +652,7 @@
 <p class="notes">
     Consider an example in which we would like to generate a NOT operator that acts on the second input for the linear function, <math>I<sub>1</sub>W<sub>1</sub> + I<sub>2</sub>W<sub>2</sub> + B = 0</math>. Given the following inputs, [(0,0), (1,0), (0,1), (1,1)], we expect the NOT operator to give the following results, [True, False, True, False]. We expect this because the NOT operator will ignore the first input, evaluate the second input, and return the inverse of the second input. We need to identify a combination of weights and bias that will provide the desired results.
 </p>
-<table class="medium-large">
+<table class="medium">
     <tbody>
         <tr>
             <th>
@@ -836,7 +844,9 @@
 <p class="notes">
     Represented grapically:
 </p>
-<img src="../static/images/perceptrons_and_logic_gates/NOT_perceptron.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/perceptrons_and_logic_gates/NOT_perceptron.svg">
+</div>
 <h3 class="notes">
     XOR Perceptron
 </h3>
@@ -938,16 +948,18 @@
 <p class="notes">
     XOR logic can not be acheived in a single boolean step (A or B is True and A is not equal to B). Thus, we require a network of perceptrons to achieve the desired results outlined in the table below. A combination of logic gates that results in a XOR logic gate is depicted below.
 </p>
-<img src="../static/images/perceptrons_and_logic_gates/XOR_perceptron.svg" class="center-image">
+<div class="note-image-box">
+    <img class="note-image" src="../static/images/perceptrons_and_logic_gates/XOR_perceptron.svg">
+</div>
 <h3 class="notes">
     NOR, XNOR, and NAND Perceptrons
 </h3>
 <p class="notes">
     Similar to the XOR logic gate, we can use different layers of the AND, OR, and NOT logic gates to create the NOR, XNOR, and NAND logic gates. There are various ways to construct each of these gates.
 </p>
-<p style="padding-top: .5em;">
+<h3 style="padding-top: 10px;">
     NOR Logic Gate
-</p>
+</h3>
 <p class="notes">
     Returns positive outputs only when both inputs are negative
 </p>
@@ -1040,9 +1052,9 @@
         </tr>
     </tbody>
 </table>
-<p style="padding-top: .5em;">
+<h3 style="padding-top: 10px;">
     XNOR Logic Gate
-</p>
+</h3>
 <p class="notes">
     Returns positive outputs only when both inputs are the same
 </p>
@@ -1135,9 +1147,9 @@
         </tr>
     </tbody>
 </table>
-<p style="padding-top: .5em;">
+<h3 style="padding-top: 10px;">
     NAND Logic Gate
-</p>
+</h3>
 <p class="notes">
     Returns a False output only if allof the inputs are True
 </p>

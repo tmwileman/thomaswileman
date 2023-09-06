@@ -1,40 +1,54 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2 class="notes">Importing a CSV</h2>
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Importing a CSV</h1>
+    </div>
+</section>
 <p class="notes">Comma-separated value (CSV) files contain plain text elements separated by commas. The plain text elements are data records and the commas separate those records; providing structure for tabular data. Below is an example of data in a CSV file. Notice that each element in the file is separated by a comma (also referred to as a delimeter).</p>
-<code>"LatD", "LatM", "LatS", "NS", "LonD", "LonM", "LonS", "EW", "City", "State"
+<pre>
+<code class="python">"LatD", "LatM", "LatS", "NS", "LonD", "LonM", "LonS", "EW", "City", "State"
     41,    5,   59, "N",     80,   39,    0, "W", "Youngstown", OH
     42,   52,   48, "N",     97,   23,   23, "W", "Yankton", SD
     46,   35,   59, "N",    120,   30,   36, "W", "Yakima", WA
     42,   16,   12, "N",     71,   48,    0, "W", "Worcester", MA
     43,   37,   48, "N",     89,   46,   11, "W", "Wisconsin Dells", WI
-    36,    5,   59, "N",     80,   15,    0, "W", "Winston-Salem", NC</code>
+    36,    5,   59, "N",     80,   15,    0, "W", "Winston-Salem", NC
+</code>
+</pre>
 <p class="notes">CSV files are a commonly used by data scientists and machine learning engineers to export and load data. For example, I commonly save the output of a SQL query to a csv so I can share data with colleagues, eliminate the need to run the SQL query again to obtain the same data, and help ensure reproducibility. There are several ways to import a CSV into your workspace. I'm going to cover the two methods I use most often.
 </p>
 <h3 class="notes">Python's Built-in CSV Library</h3>
 <p class="notes">The csv library makes reading and writing csv files fairly easy. First import the csv library. Next, use Python's open() function to generate a file object. Next, pass the file object to csv's reader function before finally putting the resulting data in a list.
 </p>
 <div>
-    <code>import csv<br><br>
+    <pre>
+    <code class="python">import csv<br>
         with open('file_path', newline='') as file_object:<br>
         csv_object = csv.reader(file_object)<br>
         data = list(csv_object)<br>
         print(data)</code>
+    </pre>
 </div>
 <p class="notes">This yields the following output:
 </p>
-<code>[['LatD', ' "LatM"', ' "LatS"', ' "NS"', ' "LonD"', ' "LonM"', ' "LonS"', ' "EW"', ' "City"', ' "State"'], ['   41', '    5', '   59', ' "N"', '     80', '   39', '    0', ' "W"', ' "Youngstown"', ' OH'], ['   42', '   52', '   48', ' "N"', '     97', '   23', '   23', ' "W"', ' "Yankton"', ' SD'], ['   46', '   35', '   59', ' "N"', '    120', '   30', '   36', ' "W"', ' "Yakima"', ' WA'], ['   42', '   16', '   12', ' "N"', '     71', '   48', '    0', ' "W"', ' "Worcester"', ' MA'], ['   43', '   37', '   48', ' "N"', '     89', '   46', '   11', ' "W"', ' "Wisconsin Dells"', ' WI'], ['   36', '    5', '   59', ' "N"', '     80', '   15', '    0', ' "W"', ' "Winston-Salem"', ' NC']</code>
+<pre>
+<code class="python">[['LatD', '"LatM"', '"LatS"', '"NS"', '"LonD"', '"LonM"', '"LonS"', '"EW"', '"City"', '"State"'], ['41', '5', '59', '"N"', '80', '39', '0', '"W"', '"Youngstown"', 'OH'], ['42', '52', '48', '"N"', '97', '23', '23', '"W"', '"Yankton"', 'SD'], ['46', '35', '59', '"N"', '120', '30', '36', '"W"', '"Yakima"', 'WA'], ['42', '16', '12', '"N"', '71', '48', '0', '"W"', '"Worcester"', 'MA'], ['43', '37', '48', '"N"', '89', '46', '11', '"W"', '"Wisconsin Dells"', 'WI'], ['36', '5', '59', '"N"', '80', '15', '0', '"W"', '"Winston-Salem"', 'NC']</code>
+</pre>
 
 <h3 class="notes">Python's Built-in CSV Library</h3>
 <p class="notes">The pandas library can be used to easily import a csv as a dataframe. First, import the pandas library. Next, use pandas' read_csv function to convert the csv to a dataframe.
 </p>
-<code>import pandas as pd<br>
+<pre>
+<code class="python">import pandas as pd<br>
         df = pd.read_csv(r'file_path')
 </code>
+</pre>
 <p class="notes">This technique yields the following result:
 </p>
-<code> <table style="width:100%">
+<pre>
+<code class="python"> <table style="width:100%">
     <tr>
       <th>LatD</th>
       <th>LatM</th>
@@ -131,6 +145,8 @@
         <td>Winston-Salem</td>
         <td>NC</td>
     </tr>
-  </table> </code>
+  </table>
+</pre>
+</code>
 
 {% endblock %}
