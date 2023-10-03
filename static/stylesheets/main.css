@@ -213,6 +213,12 @@ code {
   margin: auto;
 }
 
+.note-library {
+  padding: 10px;
+  width: 50%;
+  margin: auto;
+}
+
 .float-child-primary {
   width: 80%;
   float: right;

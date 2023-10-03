@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Choosing the Right Tool for Your Data</h1>
+    </div>
+    <div class="note-image-box">
+        <img class="note-image" style="width:250px;" src="../static/images/pandas_polars_modin/pandas_polars_modin_logo.png">
+    </div>
+</section>
+<section class="note-header">
+    <h3>ELI5</h3>
+    <p>
+        When you need to explore, transform, or analyze data, you need a tool to help you do it. Pandas, Polars, and Modin are three tools that can help you do this. They are all similar, but each has its own strengths and weaknesses.
+        <li>Pandas is like the wise old hero, great for basic stuff but slow with lots of data.</li>
+        <li>Polars is like a super-speedy hero, lightning-fast for big data jobs.</li>
+        <li>Modin is like a sidekick that makes the wise old hero (Pandas) faster.</li>
+    </p>
+</section>
+<section class="note-header">
+    <h3>Summary</h3>
+    <h5>
+        Pandas: The Tried and True
+    </h5>
+    <p>
+        Pandas is the veteran in the field, offering a mature ecosystem and a wide range of features. If you're just starting with data analysis or need to perform initial exploration and visualization, Pandas is your go-to tool. It introduced the beloved DataFrame data structure, making tabular data manipulation intuitive and accessible.
+    </p>
+    <p>
+        However, Pandas does have its limitations. It loads the entire dataset into memory, which can be problematic for large datasets. Additionally, it lacks built-in support for parallel processing, which can hinder performance on multi-core systems.
+    </p>
+    <h5>
+        Polars: The Speed Demon
+    </h5>
+    <p>
+        Built for efficiency and performance, Polars leverages a columnar data storage format, enabling blazing-fast data processing. Each column in a Polars DataFrame has a specific data type, enabling precise memory management and efficient operations.
+    </p>
+    <p>
+        Polars excels in production environments where speed is crucial. Its columnar storage allows for better data compression and vectorized operations, making it an excellent choice for data processing tasks that demand top-notch performance.
+    </p>
+    <h5>
+        Modin: Pandas Turbocharged
+    </h5>
+    <p>
+        Modin offers a seamless transition from Pandas, making it an excellent choice for those who are already familiar with Pandas and want to turbocharge their workflows. With Modin, you can continue using your favorite Pandas API calls while gaining the ability to leverage multiple CPU cores for faster computations.
+    </p>
+    <p>
+        Modin achieves parallel processing by using backends like Ray or Dask, providing a significant speed boost compared to pure Pandas. However, it's essential to note that Modin may not cover all Pandas functionalities, so be mindful of specific use cases.
+    </p>
+    <h5>
+        Summary
+    </h5>
+    <p>
+        In summary, the choice between Pandas, Polars, and Modin depends on your specific needs. Pandas is ideal for initial exploration and visualization with its mature ecosystem and interoperability with other libraries. Polars shines when speed and memory efficiency are paramount, making it suitable for data processing in production environments. Modin bridges the gap by accelerating your Pandas workflows, offering a convenient way to boost your processing power without the need to learn a new library. Ultimately, your choice should align with your data manipulation goals and the scale of your projects. Each library has its strengths, so choose wisely to harness their full potential.
+    </p>
+</section>
+<section>
+    <h3>Notes</h3>
+    <div class="note-container">
+        <table class="princeton-notes">
+            <tr>
+                <th class="note-topic">Main Ideas, Questions, Prompts</th>
+                <th class="note-content">Notes</th>
+            </tr>
+            <tr>
+                <td class="note-topic">What are Pandas, Polars, and Modin</td>
+                <td>
+                    <li class="note-bullet">
+                        Facilitate data manipulation, analysis, and transformation in an efficient and user-friendly manner.
+                    </li>
+                    <li class="note-bullet">
+                        Used to work with tabular data (rows and columns, popularized by relational databases and Microsoft Excel).
+                    </li>
+                    <li class="note-bullet">
+                        Examples of data manipulation these technologies can accomplish are:
+                        <ul><b>- Data Loading and Import:</b>
+                            Reading data from various file formats (e.g., CSV, Excel, JSON, SQL databases).
+                            Data extraction from web APIs and HTML pages.
+                        </ul>
+
+                        <ul><b>- Data Exploration:</b>
+                            Displaying basic statistics (mean, median, standard deviation, etc.).
+                            Getting information about data types and structure.
+                            Examining the first/last few rows of data.</ul>
+
+                        <ul><b>- Data Cleaning:</b>
+                            Handling missing data (e.g., filling or dropping missing values).
+                            Removing duplicate rows.
+                            Data type conversion and casting.
+                        </ul>
+
+                        <ul><b>- Data Transformation:</b>
+                            Filtering rows based on conditions.
+                            Selecting specific columns.
+                            Creating new columns based on existing data.
+                            Sorting data by one or more columns.
+                        </ul>
+                        <ul><b>- Data Aggregation:</b>
+                            Grouping data by one or more columns.
+                            Computing aggregations (e.g., sum, mean, count) within groups.
+                            Pivot tables and cross-tabulations.
+                        </ul>
+                        <ul><b>- Merging and Joining Data:</b>
+                            Combining data from multiple DataFrames based on common columns.
+                            Inner, outer, left, and right joins.
+                        </ul>
+                        <ul><b>- Data Visualization Integration:</b>
+                            Integrating with libraries like Matplotlib or Seaborn for data visualization.
+                        </ul>
+                        <ul><b>- Data Export:</b>
+                            Saving data to various file formats.
+                            Writing data to databases.
+                        </ul>
+                        <ul><b>- Machine Learning Data Preparation:</b>
+                            Preparing data for machine learning tasks, such as feature engineering and scaling.
+                        </ul>
+                    </li class="note-bullet">
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">What is Pandas</td>
+                <td>
+                    <li class="note-bullet">
+                        Introduced the DataFrame data structure, which is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns).
+                    </li>
+                    <li class="note-bullet">
+                        Provides a comprehensive set of functions to perform data cleaning, transformation, filtering, and aggregation
+                    </li>
+                    <li class="note-bullet">
+                        Pandas loads the entire dataset into memory. This means it excels with moderately sized data structures (those that can fit in a the available memory) but runs into problems when dealing with large datasets.
+                    </li>
+                    <li class="note-bullet">
+                        Pandas doesn’t provide built-in support for parallel processing, limiting its ability to leverage multiple CPU cores for faster computations.
+                    </li>
+                    <li class="note-bullet">
+                        Pandas primarily uses a row-based data storage format which is intuitive for many data manipulation tasks but may be less efficient for certain operations on large datasets.
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">What is Polars</td>
+                <td>
+                    <li class="note-bullet">
+                        A data manipulation library built for speed and memory efficiency.
+                    </li>
+                    <li class="note-bullet">
+                        Built in Rust but has Python bindings, which means it can leverage Rust's performance advantages while still being accessible from Python.
+                    </li>
+                    <li class="note-bullet">
+                        Uses a columnar data storage format, which is more cache-friendly and efficient for certain operations compared to Pandas' row-based storage. Columnar storage allows for better data compression and vectorized operations.
+                    </li>
+                    <li class="note-bullet">
+                        Each column in a Polars DataFrame has a specific data type, and Polars enforces these data types strictly. This allows for more efficient memory allocation and manipulation. This also enables Polars to take advantage of algorithms that reduce computational complexity and improve performance.
+                    </li>
+                    <li class="note-bullet">
+                        The Polars library is growing, but it's not as mature as Pandas. As a result, some features available in Pandas may be may not be in Polars.
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">What is Modin</td>
+                <td>
+                    <li class="note-bullet">
+                        Modin is a drop-in replacement for pandas. The API calls are similar to pandas. It can be easily integrated into python with a few lines of code.
+                        <pre>
+                            <code class="python">
+import pandas as pandas
+import modin.pandas as pd
+                            </code>
+                        </pre>
+                    </li>
+                    <li class="note-bullet">
+                        While pandas is single-threaded, Modin lets you instantly speed up your workflows by scaling pandas so it uses all of your cores.
+                    </li>
+                    <li class="note-bullet">
+                        Modin is able to take advantage of multiple threads because it uses a backend like ray or dask to distribute operations.
+                    </li>
+                    <li class="note-bullet">
+                        A common thread in this analysis is library maturity (size of the community supporting the project directly impacts the number of features available.) In this case, Modin cover most but not all pandas functionality. For instance, Modin does not have support for the merge() function.
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">How are they similar</td>
+                <td>
+                    <li class="note-bullet">
+                        All three libraries provide a DataFrame data structure, which is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns).
+                    </li>
+                    <li class="note-bullet">
+                        All three libraries provide a comprehensive set of functions to perform data cleaning, transformation, filtering, and aggregation.
+                    </li>
+                    <li class="note-bullet">
+                        All three libraries provide a similar API, so if you know one library, it's easy to learn the others.
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">How are they different</td>
+                <td>
+                    <li class="note-bullet">
+                        Library maturity. Pandas is the most mature of the three libraries, and it has the largest community of users and contributors. As a result, it has the most features and is the most stable. Polars and Modin are newer libraries, and they have smaller communities of users and contributors. As a result, they have fewer features.
+                    </li>
+                    <li class="note-bullet">
+                        Data storage format. Pandas uses a row-based data storage format, while Polars and Modin use a columnar data storage format. Columnar storage is more efficient for certain operations, such as data compression and vectorized operations.
+                    </li>
+                    <li class="note-bullet">
+                        Memory management. Pandas loads the entire dataset into memory, while Polars and Modin use lazy evaluation and only load the data into memory when it's needed. This means Polars and Modin can handle larger datasets than Pandas.
+                    </li>
+                    <li class="note-bullet">
+                        Parallel processing. Pandas is single-threaded, while Polars and Modin can use multiple threads for faster computations.
+                    </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+</p>
+{% endblock %}

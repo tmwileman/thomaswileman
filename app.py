@@ -9,7 +9,6 @@ app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 def home():
     return render_template("home.html")
 
-
 @app.route("/notes", methods=["GET", "POST"])
 def notes():
     return render_template("notes.html")
@@ -105,6 +104,14 @@ def lstm():
 @app.route("/setup", methods=["GET", "POST"])
 def setup():
     return render_template("setup.html")
+
+@app.route("/datalake_vs_datawarehouse", methods=["GET", "POST"])
+def dl_v_dw():
+    return render_template("datalake_vs_datawarehouse.html")
+
+@app.route("/pandas_polars_modin", methods=["GET", "POST"])
+def pandas_polars_modin():
+    return render_template("pandas_polars_modin.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

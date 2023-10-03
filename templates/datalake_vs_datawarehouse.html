@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<section class="note-header">
+    <div class="note-title">
+        <h1 class="page-title ft">Data Warehouse vs Data Lake</h1>
+    </div>
+    <div class="note-image-box">
+        <img class="note-image" style="width:250px;" src="../static/images/dl_v_dw/dl_v_dw_cover.png">
+    </div>
+</section>
+<section>
+    <h3>ELI5</h3>
+    <p class="notes">
+        Data Lakes are like a big toy box where you put all your toys - dolls, action figures, Legos, and more. You can easily take them out and play with them in any way you want, but it might take some time to find the exact toy you want.
+
+        Data Warehouses are like a neatly organized shelf where you put your toys in separate bins. Each bin has a label, making it super easy to find the specific toy you want to play with. It's quick and organized, but you can only play with the toys in the bins.
+    </p>
+</section>
+<section>
+    <h3>Notes</h3>
+    <div class="note-container">
+        <table class="princeton-notes">
+            <tr>
+                <th class="note-topic">Main Ideas, Questions, Prompts</th>
+                <th class="note-content">Notes</th>
+            </tr>
+            <tr>
+                <td class="note-topic">What is a data warehouse?</td>
+                <td>
+                    <li class="note-bullet">
+                        A large-scale database system that collects, stores, and manages data from various sources within an organization.
+                    </li>
+                    <li class="note-bullet">
+                        It is specifically designed to support business intelligence (BI) and data analysis activities.
+                    </li>
+                    <li class="note-bullet">
+                        The data is often transformed and cleaned to ensure accuracy and consistency via extract, transform, and load (ETL) pipelines.
+                    </li class="note-bullet">
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">What is a data lake?</td>
+                <td>
+                    <li class="note-bullet">
+                        A storage repository that holds vast amounts of raw data in its native format until it is needed.
+                    </li>
+                    <li class="note-bullet">
+                        Designed to accommodate unstructured and semi-structured data
+                    </li>
+                    <li class="note-bullet">
+                        Can store all types of data including spreadsheets, XML, JSON, images, and more.
+                    </li>
+                </td>
+            </tr>
+            <tr>
+                <td class="note-topic">What are the key differences between the two?</td>
+                <td>
+                    <li class="note-bullet">
+                        <b>Data Structure: </b> Data warehouses store structured data in a highly organized
+                        manner using a predefined schema. Data is cleaned, transformed, and structured before being loaded into the warehouse. Data lakes store data in its raw, native format. This allows for flexibility in data storage without enforcing a fixed schema.
+                    </li>
+                    <li class="note-bullet">
+                        <b>Processing: </b> Data lakes use ELT (Extract, Load, Transform). In this process, the data is extracted from its source for storage in the data lake, and structured only when needed. Data warehouses use ETL (Extract, Transform, Load). In this process, data is extracted from its source(s), scrubbed, then structured so it's ready for business-end analysis.
+                    </li>
+                    <li class="note-bullet">
+                        <b>Cost: </b> Data lakes are typically cheaper and more efficient data warehouses. For example, Amazon Redshift (a data warehouse platform) charges customers on an hourly basis. They allow you to start small at 0.25 per hour and then scale up to thousands of concurrent users and petabytes of data. With Amazon S3 (a data lake style platform), you only pay for what you use. The storage costs depend on the size of the objects that you store, the storage class, and the period of time for which the object is stored. The minimum storage attracts a cost of 0.023 per GB.
+                    </li>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section>
+    <h3>Summary</h3>
+    <p class="notes">
+        Data lakes offer flexibility for storing diverse data types in their raw form, enabling exploration and analysis, while data warehouses provide structured, optimized storage for quick and reliable business intelligence and reporting.
+    </p>
+</section>
+</p>
+{% endblock %}
