@@ -108,7 +108,7 @@ def setup():
 
 
 @app.route("/datalake_vs_datawarehouse", methods=["GET", "POST"])
-def dl_v_dw():
+def datalake_vs_datawarehouse():
     return render_template("datalake_vs_datawarehouse.html")
 
 
