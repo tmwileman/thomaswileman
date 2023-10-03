@@ -101,17 +101,21 @@ def asd():
 def lstm():
     return render_template("lstm.html")
 
+
 @app.route("/setup", methods=["GET", "POST"])
 def setup():
     return render_template("setup.html")
+
 
 @app.route("/datalake_vs_datawarehouse", methods=["GET", "POST"])
 def dl_v_dw():
     return render_template("datalake_vs_datawarehouse.html")
 
+
 @app.route("/pandas_polars_modin", methods=["GET", "POST"])
 def pandas_polars_modin():
     return render_template("pandas_polars_modin.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
